@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="max-age=60, must-revalidate">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#07111C">
+<title>BagPing — Get pinged the moment your bag reaches the belt</title>
+<meta name="description" content="You're at the carousel with no idea when your bag is coming. BagPing pings the moment it's near — and a five-member AI Travel Crew tracks your flight, guides you on the ground in any airport, drafts your claim, and reads your insurance. In 18 languages, in the app.">
+<meta property="og:title" content="BagPing — Get pinged the moment your bag reaches the belt">
+<meta property="og:description" content="BLE bag tracking + a five-member AI Travel Crew. In 18 languages, in the app.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bagping.com/">
+<meta property="og:image" content="https://bagping.com/bagping-og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="BagPing — your phone pings the moment your bag reaches the belt. BLE tracking plus a five-member AI Travel Crew.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BagPing — Get pinged the moment your bag reaches the belt">
+<meta name="twitter:description" content="BLE bag tracking + a five-member AI Travel Crew. In 18 languages, in the app.">
+<meta name="twitter:image" content="https://bagping.com/bagping-og-image.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="https://bagping.com/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="BagPing">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%230099E6'/%3E%3Crect x='4' y='7' width='16' height='13' rx='2' fill='none' stroke='%23fff' stroke-width='2'/%3E%3Cpath d='M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2' fill='none' stroke='%23fff' stroke-width='2'/%3E%3Ccircle cx='17' cy='13' r='1.5' fill='%23FFD600'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* ════════ BagPing brand tokens — unified app + site ════════ */
+:root{
+  --blue:#0099E6;
+  --deep:#006BB5;
+  --ink:#052744;          /* navy ink */
+  --yellow:#FFD600;
+  --yellow-hi:#FFE24D;    /* bright top-light for richer yellow fills */
+  --yellow-deep:#FFC000;
+  --yellow-shadow:#B88A00;
+
+  --hero:#07111C;         /* dramatic dark hero base */
+  --hero-2:#03192B;
+  --hero-3:#040D16;
+
+  --paper:#FFFFFF;
+  --body:#F4F9FE;         /* light body */
+  --body-2:#EAF3FC;
+  --cream:#EAF3FC;
+  --sky:#E6F4FE;
+
+  --text:#0A1628;
+  --text-soft:#28384C;
+  --muted:#5C6B82;
+  --line:#DCE8F4;
+
+  --green:#16A34A;
+  --green-live:#22D46A;
+  --red:#DC2626;
+
+  --r-sm:10px; --r-md:16px; --r-lg:24px; --r-xl:32px; --r-pill:999px;
+  --shadow-card:0 1px 0 rgba(5,39,68,.05), 0 18px 48px rgba(5,39,68,.14);
+  --shadow-soft:0 10px 34px rgba(5,39,68,.11);
+  --shadow-yellow:0 5px 0 var(--yellow-shadow), 0 14px 34px rgba(255,214,0,.5);
+
+  --font-ui:'Outfit',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --font-serif:'DM Serif Display',Georgia,'Times New Roman',serif;
+  --maxw:1120px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{
+  font-family:var(--font-ui);
+  color:var(--text);
+  background:var(--body);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:var(--deep);text-decoration:none;}
+img,svg{display:block;max-width:100%;}
+button{font-family:inherit;cursor:pointer;border:0;background:transparent;color:inherit;}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:2px;border-radius:6px;}
+
+/* ───── layout helpers ───── */
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+.section{padding:84px 0;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--deep);
+}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--yellow);border-radius:2px;box-shadow:0 0 8px rgba(255,214,0,.6);}
+.h2{font-family:var(--font-serif);font-weight:400;font-size:clamp(30px,4.4vw,46px);line-height:1.06;letter-spacing:-.01em;color:var(--ink);}
+.h2 em{font-style:italic;color:var(--blue);}
+.lead{font-size:clamp(16px,1.7vw,19px);color:var(--text-soft);max-width:62ch;margin-top:14px;}
+
+/* ───── buttons ───── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  font-weight:700;font-size:15px;padding:14px 22px;border-radius:var(--r-pill);
+  transition:transform .12s ease, box-shadow .2s ease, background .2s ease;white-space:nowrap;}
+.btn--yellow{background:linear-gradient(180deg,var(--yellow-hi),var(--yellow) 55%,var(--yellow-deep));color:var(--ink);border-radius:14px;box-shadow:var(--shadow-yellow);}
+.btn--yellow:hover{background:linear-gradient(180deg,var(--yellow-hi),var(--yellow) 55%,var(--yellow-deep));transform:translateY(-2px);box-shadow:0 7px 0 var(--yellow-shadow),0 20px 46px rgba(255,214,0,.62);}
+.btn--yellow:active{transform:translateY(2px);box-shadow:0 2px 0 var(--yellow-shadow),0 5px 14px rgba(255,214,0,.32);}
+.btn--blue{background:linear-gradient(135deg,var(--blue),var(--deep));color:#fff;box-shadow:0 12px 28px rgba(0,153,230,.42);}
+.btn--blue:hover{background:var(--deep);}
+.btn--ghost{background:#fff;color:var(--deep);border:1.5px solid #9CC8EA;}
+.btn--ghost:hover{border-color:var(--blue);background:var(--sky);}
+.btn--ink{background:linear-gradient(135deg,#0A3A63,var(--ink));color:#fff;box-shadow:0 12px 30px rgba(5,39,68,.34);}
+.btn--ink:hover{background:#0a3a63;}
+
+/* ════════ NAV ════════ */
+.nav{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.85);backdrop-filter:saturate(170%) blur(14px);border-bottom:1px solid var(--line);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;}
+.brand{display:flex;align-items:center;gap:10px;}
+/* ── UNIFIED APP LOGO TILE ── */
+.brand-mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(150deg,var(--blue),var(--deep));display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 3px 12px rgba(0,107,181,.5);}
+.brand-mark svg{width:21px;height:21px;}
+.brand-word{font-family:var(--font-serif);font-size:23px;line-height:1;color:var(--ink);letter-spacing:-.2px;}
+.brand-word em{font-style:normal;color:var(--yellow-deep);}
+.nav-right{display:flex;align-items:center;gap:14px;}
+.nav-links{display:flex;align-items:center;gap:26px;}
+.nav-links a{color:var(--text-soft);font-weight:600;font-size:14.5px;}
+.nav-links a:hover{color:var(--deep);}
+.lang{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:700;color:var(--text);background:var(--paper);border:1px solid var(--line);padding:8px 12px;border-radius:var(--r-pill);}
+
+/* ════════ HERO — dramatic dark, matched to the ad ════════ */
+.hero{position:relative;overflow:hidden;background:var(--hero);color:#fff;border-bottom:0;}
+.hero-bg{position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 92% 58% at 50% -4%, rgba(0,153,230,.58) 0%, rgba(0,107,181,.22) 40%, transparent 68%),
+    radial-gradient(ellipse 58% 42% at 84% 92%, rgba(0,153,230,.22) 0%, transparent 58%),
+    radial-gradient(ellipse 50% 40% at 12% 62%, rgba(0,107,181,.15) 0%, transparent 60%),
+    linear-gradient(180deg, var(--hero-2) 0%, var(--hero) 56%, var(--hero-3) 100%);}
+.hero-dots{position:absolute;inset:0;pointer-events:none;
+  background-image:
+    radial-gradient(rgba(0,153,230,.2) 1px, transparent 1.4px),
+    radial-gradient(rgba(255,255,255,.045) 1px, transparent 1.4px);
+  background-size:24px 24px, 24px 24px;
+  background-position:0 0, 12px 12px;
+  -webkit-mask-image:radial-gradient(ellipse 85% 78% at 50% 42%, #000 34%, transparent 100%);
+  mask-image:radial-gradient(ellipse 85% 78% at 50% 42%, #000 34%, transparent 100%);}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;grid-template-areas:"copy stage" "actions stage";gap:8px 48px;align-items:center;padding:64px 0 96px;}
+.hero-copy{grid-area:copy;align-self:end;}
+.hero-actions{grid-area:actions;align-self:start;}
+.stage-card{grid-area:stage;width:100%;max-width:520px;margin-inline:auto;}
+.hero-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.hero .eyebrow{color:#5CC2F5;}
+.hero .eyebrow::before{background:var(--yellow);box-shadow:0 0 10px rgba(255,214,0,.75);}
+.live-chip{display:inline-flex;align-items:center;gap:6px;background:rgba(34,212,106,.1);border:1px solid rgba(34,212,106,.28);border-radius:var(--r-pill);padding:5px 11px;font-size:10.5px;font-weight:700;color:var(--green-live);letter-spacing:.07em;text-transform:uppercase;}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--green-live);animation:blink 1.5s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.hero h1{font-family:var(--font-serif);font-weight:400;font-size:clamp(38px,5.6vw,60px);line-height:1.04;letter-spacing:-.02em;margin-top:16px;color:#fff;text-shadow:0 2px 30px rgba(0,153,230,.24);}
+.hero h1 em{font-style:italic;color:var(--yellow);text-shadow:0 0 34px rgba(255,214,0,.5);}
+.hero-sub{font-size:clamp(15.5px,1.7vw,18.5px);color:rgba(255,255,255,.78);max-width:52ch;margin-top:20px;}
+.hero-sub b{color:#fff;font-weight:700;}
+
+/* hero stats row */
+.hero-stats{display:flex;align-items:center;gap:22px;margin-top:28px;}
+.hstat{text-align:left;}
+.hstat-num{font-size:23px;font-weight:800;color:#fff;line-height:1;letter-spacing:-.02em;}
+.hstat-num span{color:var(--blue);}
+.hstat-label{font-size:10px;font-weight:600;color:rgba(255,255,255,.6);margin-top:4px;text-transform:uppercase;letter-spacing:.06em;}
+.hstat-div{width:1px;height:32px;background:linear-gradient(180deg,transparent,rgba(0,153,230,.4),transparent);}
+
+/* hero actions */
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;align-items:center;}
+.hero .btn--ghost{background:rgba(255,255,255,.07);color:#fff;border:1.5px solid rgba(255,255,255,.24);}
+.hero .btn--ghost:hover{background:rgba(255,255,255,.13);border-color:rgba(92,194,245,.6);}
+.hero-then{margin-top:22px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);}
+.stores{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px;}
+.store{display:inline-flex;align-items:center;gap:11px;background:#fff;border:1px solid rgba(255,255,255,.14);color:var(--text);padding:11px 17px;border-radius:14px;transition:transform .12s,box-shadow .2s;box-shadow:0 12px 30px rgba(0,0,0,.36);}
+.store:hover{transform:translateY(-1px);box-shadow:0 16px 38px rgba(0,0,0,.46);}
+.store svg{width:24px;height:24px;flex:none;}
+.store small{display:block;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
+.store strong{display:block;font-size:15px;font-weight:700;line-height:1.15;}
+.hero-note{margin-top:18px;font-size:13.5px;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:8px;}
+.hero-note b{color:#fff;}
+
+/* ── hero carousel scene ── */
+.hero-scene{position:relative;width:100%;border-radius:20px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.5), 0 0 0 1px rgba(0,153,230,.18), inset 0 0 60px rgba(0,153,230,.08);}
+.hero-scene>svg{width:100%;height:auto;display:block;}
+.scene-eta{position:absolute;right:12px;top:12px;z-index:4;background:linear-gradient(135deg,var(--blue),var(--deep));color:#fff;border-radius:13px;padding:9px 13px;box-shadow:0 14px 30px rgba(0,107,181,.4);text-align:left;}
+.scene-eta small{display:block;font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.85;}
+.scene-eta b{font-size:20px;font-variant-numeric:tabular-nums;line-height:1.1;}
+.scene-ticker{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);z-index:4;background:rgba(7,17,28,.9);border:1px solid rgba(0,153,230,.4);color:#dcecf9;font-weight:700;font-size:12px;padding:8px 15px;border-radius:var(--r-pill);white-space:nowrap;max-width:90%;overflow:hidden;text-overflow:ellipsis;opacity:1;transition:opacity .45s;backdrop-filter:blur(6px);box-shadow:0 8px 22px rgba(0,0,0,.4);}
+.scene-ticker.fade{opacity:0;}
+
+/* hero → body curve */
+.hero-curve{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:42px;display:block;z-index:3;}
+
+/* ════════ TRUST STRIP ════════ */
+.strip{background:var(--paper);color:var(--text-soft);border-bottom:1px solid var(--line);}
+.strip-inner{display:flex;flex-wrap:wrap;gap:14px 40px;justify-content:center;padding:20px 0;font-size:13.5px;font-weight:600;}
+.strip-inner span{display:inline-flex;align-items:center;gap:9px;}
+.strip-inner svg{width:17px;height:17px;color:var(--blue);}
+
+/* ════════ PROBLEM ════════ */
+.problem{background:var(--body);}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+.problem-card{background:linear-gradient(160deg,var(--cream),#DCEBFA);border-radius:var(--r-xl);padding:34px;border:1px solid #C4DDF3;box-shadow:var(--shadow-soft);}
+.problem-card h3{font-family:var(--font-serif);font-weight:400;font-size:22px;color:var(--ink);margin-bottom:8px;}
+.problem-list{margin-top:20px;display:grid;gap:14px;}
+.problem-list li{list-style:none;display:flex;gap:13px;align-items:flex-start;font-size:15.5px;color:var(--text-soft);}
+.problem-list .x{flex:none;width:24px;height:24px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;margin-top:1px;box-shadow:0 3px 10px rgba(220,38,38,.35);}
+.answer{margin-top:24px;padding:18px 20px;border-radius:var(--r-md);background:#fff;border:1px solid var(--line);display:flex;gap:13px;align-items:flex-start;box-shadow:var(--shadow-soft);}
+.answer .c{flex:none;width:24px;height:24px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;margin-top:1px;box-shadow:0 3px 10px rgba(22,163,74,.4);}
+.answer b{color:var(--text);}
+
+/* ════════ HOW IT WORKS ════════ */
+.how{background:var(--body-2);}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:42px;}
+.step{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:22px 18px;position:relative;overflow:hidden;transition:transform .15s,box-shadow .2s;box-shadow:0 4px 16px rgba(5,39,68,.05);}
+.step:hover{transform:translateY(-3px);box-shadow:var(--shadow-soft);}
+.step-num{font-family:var(--font-serif);font-size:15px;color:var(--blue);}
+.step-ic{width:46px;height:46px;border-radius:13px;background:linear-gradient(155deg,var(--sky),#CFE7FB);color:var(--deep);display:flex;align-items:center;justify-content:center;margin:12px 0 14px;box-shadow:inset 0 1px 0 #fff, 0 4px 12px rgba(0,107,181,.14);}
+.step-ic svg{width:24px;height:24px;}
+.step h4{font-size:16px;font-weight:700;margin-bottom:6px;}
+.step p{font-size:13.5px;color:var(--muted);line-height:1.5;}
+.step.is-key{background:linear-gradient(160deg,var(--sky),#D4E9FC);border:1.5px solid #8FC1E8;box-shadow:0 10px 30px rgba(0,107,181,.16);}
+.step.is-key .step-num{color:var(--deep);}
+.step.is-key .step-ic{background:#fff;color:var(--deep);}
+.step.is-key h4{color:var(--ink);}
+.step.is-key p{color:var(--text-soft);}
+
+/* ════════ CREW ════════ */
+.crew{background:var(--body);}
+.crew-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;}
+.crew-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px;}
+.crew-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;transition:transform .15s,box-shadow .2s,border-color .2s;box-shadow:0 4px 16px rgba(5,39,68,.05);}
+.crew-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-card);border-color:#B9D8F1;}
+.crew-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+.crew-ic{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,var(--blue),var(--deep));color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,107,181,.34), inset 0 1px 0 rgba(255,255,255,.25);}
+.crew-ic svg{width:25px;height:25px;}
+.crew-no{font-family:var(--font-serif);font-size:20px;color:#BBD9F2;}
+.crew-card h4{font-family:var(--font-serif);font-weight:400;font-size:21px;color:var(--text);margin-bottom:6px;}
+.crew-card h4 em{font-style:italic;color:var(--deep);}
+.crew-card p{font-size:14px;color:var(--muted);line-height:1.55;}
+.crew-foot{margin-top:34px;background:#fff;border:1px solid var(--line);border-radius:var(--r-xl);padding:30px 34px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;color:var(--text);box-shadow:var(--shadow-card);}
+.crew-foot h3{font-family:var(--font-serif);font-weight:400;font-size:24px;color:var(--ink);}
+.crew-foot p{color:var(--muted);font-size:14.5px;margin-top:4px;}
+
+/* ════════ COMPARE ════════ */
+.compare{background:var(--paper);color:var(--text);}
+.compare .h2{color:var(--ink);}
+.compare .h2 em{color:var(--blue);}
+.table{margin-top:40px;background:#fff;border:1px solid var(--line);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-card);}
+.trow{display:grid;grid-template-columns:1.6fr 1fr 1fr;align-items:center;}
+.trow+.trow{border-top:1px solid var(--line);}
+.trow>div{padding:17px 20px;font-size:14.5px;}
+.thead{background:linear-gradient(180deg,var(--body-2),#DEEDFB);font-weight:700;font-size:13px;letter-spacing:.04em;}
+.them{color:var(--muted);text-align:center;}
+.tus{color:var(--deep);font-weight:700;text-align:center;display:flex;align-items:center;justify-content:center;gap:7px;}
+.tfeat{color:var(--text-soft);}
+.tno{color:#A4B6C9;text-align:center;}
+
+/* ════════ LANGUAGES ════════ */
+.langs{background:var(--body);}
+.lang-cloud{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px;}
+.lang-pill{background:#fff;border:1px solid var(--line);border-radius:var(--r-pill);padding:9px 16px;font-size:14px;font-weight:600;color:var(--text-soft);box-shadow:0 2px 8px rgba(5,39,68,.05);}
+.lang-pill.is-rtl{direction:rtl;}
+
+/* ════════ DOWNLOAD ════════ */
+.download{background:var(--body-2);color:var(--text);}
+.dl-inner{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center;}
+.dl-inner .h2{color:var(--ink);}
+.dl-inner .h2 em{color:var(--blue);}
+.dl-inner .lead{color:var(--text-soft);}
+.dl-actions{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px;}
+.dl-actions .store{background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-soft);}
+.dl-phone{justify-self:center;width:240px;height:480px;border-radius:38px;background:#07182c;border:9px solid #07182c;box-shadow:0 36px 80px rgba(5,39,68,.42), 0 0 0 1px rgba(0,153,230,.2);position:relative;overflow:hidden;}
+.dl-phone .scr{position:absolute;inset:0;background:linear-gradient(180deg,#F4FAFE,#E7F2FC);padding:26px 18px;display:flex;flex-direction:column;}
+.dl-notch{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:90px;height:22px;border-radius:12px;background:#07182c;z-index:2;}
+.mini-brand{display:flex;align-items:center;gap:8px;margin-top:14px;}
+.mini-brand .brand-word{color:var(--ink);font-size:18px;}
+.mini-brand .brand-word em{color:var(--yellow-deep);}
+.mini-card{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:var(--shadow-soft);}
+.mini-card .mc-eta{font-family:var(--font-serif);font-size:30px;color:var(--deep);line-height:1;}
+.mini-card .mc-lab{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:6px;}
+.mini-row{display:flex;align-items:center;gap:10px;margin-top:12px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;}
+.mini-row .md{width:9px;height:9px;border-radius:50%;background:var(--green);flex:none;}
+.mini-row span{font-size:12px;color:var(--text-soft);}
+
+/* ════════ PRICING ════════ */
+.price{background:linear-gradient(180deg,var(--cream),#DCEBFA);}
+.price-card{max-width:560px;margin:34px auto 0;background:#fff;border:1px solid #C4DDF3;border-radius:var(--r-xl);padding:38px;text-align:center;box-shadow:var(--shadow-card);}
+.price-tag{font-family:var(--font-serif);font-size:54px;color:var(--ink);line-height:1;}
+.price-tag small{font-size:18px;color:var(--muted);}
+.price-card .sub{color:var(--muted);margin:8px 0 22px;font-size:15px;}
+.price-incl{display:grid;gap:11px;text-align:left;max-width:360px;margin:0 auto 26px;}
+.price-incl li{list-style:none;display:flex;gap:11px;font-size:14.5px;color:var(--text-soft);}
+.price-incl svg{width:20px;height:20px;color:var(--green);flex:none;}
+
+/* ════════ FOOTER ════════ */
+.foot{background:#fff;color:var(--muted);padding:54px 0 30px;border-top:1px solid var(--line);}
+.foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+.foot .brand-word{color:var(--ink);}
+.foot .brand-word em{color:var(--yellow-deep);}
+.foot-col h5{color:var(--ink);font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;}
+.foot-col a{display:block;color:var(--muted);font-size:14px;margin-bottom:9px;}
+.foot-col a:hover{color:var(--deep);}
+.foot-cols{display:flex;gap:60px;flex-wrap:wrap;}
+.foot-bottom{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:#6f8aa6;align-items:center;}
+
+[data-placeholder]{position:relative;}
+
+/* ════════ CHECKOUT MODAL ════════ */
+.co{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(4,13,22,.66);backdrop-filter:blur(7px);}
+.co.on{display:flex;animation:co-fade .2s ease;}
+@keyframes co-fade{from{opacity:0}to{opacity:1}}
+.co-card{width:100%;max-width:460px;background:var(--paper);border-radius:var(--r-xl);box-shadow:0 40px 100px rgba(4,13,22,.5);overflow:hidden;animation:co-rise .28s cubic-bezier(.2,.8,.2,1);max-height:94vh;display:flex;flex-direction:column;}
+@keyframes co-rise{from{opacity:0;transform:translateY(24px) scale(.97)}to{opacity:1;transform:none}}
+.co-head{display:flex;align-items:center;gap:12px;padding:20px 22px;border-bottom:1px solid var(--line);}
+.co-logo{width:38px;height:38px;border-radius:10px;background:linear-gradient(150deg,var(--blue),var(--deep));display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 3px 12px rgba(0,107,181,.5);}
+.co-logo svg{width:23px;height:23px;}
+.co-titles{flex:1;min-width:0;}
+.co-title{font-family:var(--font-serif);font-weight:400;font-size:19px;color:var(--text);line-height:1.1;}
+.co-secure{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--green);margin-top:3px;}
+.co-secure svg{width:12px;height:12px;}
+.co-close{width:34px;height:34px;border-radius:50%;background:var(--body-2);color:var(--muted);display:flex;align-items:center;justify-content:center;flex:none;transition:background .15s,transform .15s;}
+.co-close:hover{background:var(--ink);color:#fff;transform:rotate(90deg);}
+.co-body{padding:22px;overflow-y:auto;}
+.co-h{font-size:16px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.co-p{font-size:13.5px;color:var(--muted);margin-bottom:18px;line-height:1.5;}
+.co-qty{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:20px;}
+.co-pill{flex:1;min-width:56px;padding:13px 0;border-radius:var(--r-md);border:1.5px solid var(--line);background:var(--paper);font-weight:700;font-size:16px;color:var(--text-soft);transition:all .14s;}
+.co-pill:hover{border-color:#a9d1f0;}
+.co-pill.on{border-color:var(--blue);background:linear-gradient(180deg,var(--sky),#D4E9FC);color:var(--deep);box-shadow:0 0 0 3px rgba(0,153,230,.16);}
+.co-sum{background:linear-gradient(180deg,var(--body-2),#E1EEFB);border:1px solid var(--line);border-radius:var(--r-md);padding:16px 18px;margin-bottom:16px;}
+.co-line{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;padding:5px 0;}
+.co-line .k{color:var(--text-soft);}
+.co-line .k small{display:block;color:var(--muted);font-size:12px;}
+.co-line .v{font-weight:700;color:var(--text);font-variant-numeric:tabular-nums;}
+.co-line .v.free{color:var(--green);}
+.co-line.total{border-top:1px solid var(--line);margin-top:6px;padding-top:12px;}
+.co-line.total .k{font-weight:700;color:var(--text);}
+.co-line.total .v{font-size:22px;}
+.co-trust{display:flex;flex-wrap:wrap;gap:10px 16px;margin-bottom:18px;}
+.co-trust span{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--text-soft);}
+.co-trust svg{width:14px;height:14px;color:var(--blue);}
+.co-pay{width:100%;display:inline-flex;align-items:center;justify-content:center;gap:9px;background:linear-gradient(180deg,var(--yellow-hi),var(--yellow) 55%,var(--yellow-deep));color:var(--ink);font-weight:800;font-size:16px;padding:16px;border-radius:var(--r-pill);box-shadow:var(--shadow-yellow);transition:background .2s,transform .12s,box-shadow .2s;}
+.co-pay:hover{transform:translateY(-2px);box-shadow:0 7px 0 var(--yellow-shadow),0 20px 46px rgba(255,214,0,.62);}
+.co-pay:active{transform:translateY(2px);box-shadow:0 2px 0 var(--yellow-shadow),0 5px 14px rgba(255,214,0,.32);}
+.co-note{font-size:12px;color:var(--muted);text-align:center;margin-top:12px;line-height:1.5;}
+.co-note b{color:var(--text-soft);}
+.co-app{margin-top:16px;padding-top:16px;border-top:1px solid var(--line);text-align:center;font-size:12.5px;color:var(--muted);}
+.co-app b{color:var(--text-soft);}
+
+/* ════════ LEGAL MODAL ════════ */
+.legal-modal{position:fixed;inset:0;z-index:200;background:rgba(4,13,22,.6);display:none;align-items:center;justify-content:center;padding:18px;}
+.legal-modal.is-open{display:flex;}
+.lm-card{background:#fff;border-radius:18px;max-width:560px;width:100%;max-height:84vh;display:flex;flex-direction:column;box-shadow:0 40px 100px rgba(4,13,22,.5);overflow:hidden;}
+.lm-head{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid var(--line);}
+.lm-head strong{font-size:18px;font-weight:800;color:var(--text);}
+.lm-close{width:34px;height:34px;border-radius:10px;font-size:20px;color:var(--muted);background:var(--body-2);}
+.lm-body{overflow-y:auto;padding:20px 22px 26px;color:var(--text-soft);font-size:14.5px;line-height:1.7;}
+.lm-body h4{font-weight:800;font-size:15.5px;color:var(--text);margin:18px 0 8px;}
+.lm-body h4:first-child{margin-top:0;}
+.lm-body p{margin-bottom:12px;}
+.lm-body strong{color:var(--text);}
+
+/* ════════ RESPONSIVE ════════ */
+@media(max-width:980px){
+  .hero-grid{grid-template-columns:1fr;grid-template-areas:"copy" "stage" "actions";gap:26px;padding:48px 0 78px;}
+  .stage-card{max-width:460px;order:-1;}
+  .problem-grid,.dl-inner{grid-template-columns:1fr;gap:32px;}
+  .steps{grid-template-columns:repeat(2,1fr);}
+  .crew-grid{grid-template-columns:repeat(2,1fr);}
+  .nav-links{display:none;}
+  .dl-phone{display:none;}
+}
+@media(max-width:560px){
+  .section{padding:60px 0;}
+  .wrap{padding:0 18px;}
+  .steps{grid-template-columns:1fr;}
+  .crew-grid{grid-template-columns:1fr;}
+  .trow{grid-template-columns:1.4fr .8fr .8fr;}
+  .trow>div{padding:14px 12px;font-size:13px;}
+  .hero-cta .btn{flex:1 1 auto;}
+  .hero-stats{gap:14px;}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ NAV ═══════════ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="BagPing home">
+      <span class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="4" y="7" width="16" height="13" rx="2" stroke="#fff" stroke-width="2"/>
+          <path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" stroke="#fff" stroke-width="2"/>
+          <circle cx="17" cy="13" r="1.5" fill="#FFD600"/>
+        </svg>
+      </span>
+      <span class="brand-word">Bag<em>Ping</em></span>
+    </a>
+    <nav class="nav-right" aria-label="Primary">
+      <div class="nav-links">
+        <a href="#how">How it works</a>
+        <a href="#crew">AI Travel Crew</a>
+        <a href="#compare">Compare</a>
+        <a href="#pricing">Pricing</a>
+      </div>
+      <span class="lang" aria-label="Available in 18 languages">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18" stroke="currentColor" stroke-width="1.8"/></svg>
+        18 languages
+      </span>
+      <button class="btn btn--yellow" data-checkout>Get your tag</button>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-dots" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+
+      <div class="hero-copy">
+        <div class="hero-top">
+          <span class="eyebrow">BLE bag tracking + AI Travel Crew</span>
+        </div>
+        <h1>Your bag hits the belt. <em>You know first.</em></h1>
+        <p class="hero-sub">You're at the carousel with no idea when your bag is coming. <b>BagPing pings the moment it's near</b> — and a five-member AI Travel Crew tracks your flight, guides you on the ground in any airport, drafts your claim, and reads your insurance.</p>
+        <div class="hero-stats">
+          <div class="hstat"><div class="hstat-num">Any</div><div class="hstat-label">Airport</div></div>
+          <div class="hstat-div" aria-hidden="true"></div>
+          <div class="hstat"><div class="hstat-num">18</div><div class="hstat-label">Languages</div></div>
+          <div class="hstat-div" aria-hidden="true"></div>
+          <div class="hstat"><div class="hstat-num">5</div><div class="hstat-label">AI crew</div></div>
+        </div>
+      </div>
+
+      <div class="stage-card">
+        <div class="hero-scene">
+          <svg viewBox="0 0 520 360" role="img" aria-label="An airport baggage carousel. Colored bags move along a curved belt toward the baggage-claim feed. The yellow BagPing bag is highlighted with a pulsing ping signal." preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <linearGradient id="sceneBg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#0A1A2C"/>
+                <stop offset="1" stop-color="#05101C"/>
+              </linearGradient>
+              <linearGradient id="beltG" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#2A3A4E"/>
+                <stop offset="1" stop-color="#16222F"/>
+              </linearGradient>
+              <radialGradient id="pingG" cx="0.5" cy="0.5" r="0.5">
+                <stop offset="0" stop-color="#FFD600" stop-opacity=".5"/>
+                <stop offset="1" stop-color="#FFD600" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="signG" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#0099E6"/>
+                <stop offset="1" stop-color="#006BB5"/>
+              </linearGradient>
+              <clipPath id="sceneClip"><rect width="520" height="360" rx="20"/></clipPath>
+              <linearGradient id="fadeL" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#05101C" stop-opacity="1"/>
+                <stop offset="1" stop-color="#05101C" stop-opacity="0"/>
+              </linearGradient>
+              <linearGradient id="fadeR" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#05101C" stop-opacity="0"/>
+                <stop offset="1" stop-color="#05101C" stop-opacity="1"/>
+              </linearGradient>
+            </defs>
+
+            <g clip-path="url(#sceneClip)">
+              <rect width="520" height="360" fill="url(#sceneBg)"/>
+
+              <!-- pillars -->
+              <rect x="40" y="36" width="14" height="150" rx="3" fill="#0E1F31"/>
+              <rect x="466" y="36" width="14" height="150" rx="3" fill="#0E1F31"/>
+
+              <!-- baggage claim sign -->
+              <g transform="translate(160 30)">
+                <rect width="200" height="40" rx="8" fill="url(#signG)"/>
+                <g transform="translate(16 11)" fill="none" stroke="#fff" stroke-width="2">
+                  <rect x="0" y="3" width="13" height="11" rx="1.5"/>
+                  <path d="M4 3V1.6A1.6 1.6 0 0 1 5.6 0h1.8A1.6 1.6 0 0 1 9 1.6V3"/>
+                </g>
+                <text x="44" y="26" fill="#fff" font-family="Outfit,sans-serif" font-size="15" font-weight="800" letter-spacing="1.5">BAGGAGE CLAIM</text>
+              </g>
+
+              <!-- FEED slot -->
+              <g transform="translate(20 96)">
+                <rect x="0" y="0" width="70" height="92" rx="8" fill="#0B1828"/>
+                <rect x="10" y="14" width="50" height="64" rx="4" fill="#060F1A"/>
+                <text x="35" y="50" fill="#3E5572" font-family="Outfit,sans-serif" font-size="10" font-weight="700" text-anchor="middle" letter-spacing="1.5">FEED</text>
+              </g>
+
+              <!-- racetrack belt -->
+              <g>
+                <path d="M120 250 Q120 150 220 150 L360 150 Q470 150 470 235 Q470 318 360 318 L220 318 Q120 318 120 250 Z"
+                      fill="none" stroke="url(#beltG)" stroke-width="44"/>
+                <path d="M120 250 Q120 150 220 150 L360 150 Q470 150 470 235 Q470 318 360 318 L220 318 Q120 318 120 250 Z"
+                      fill="none" stroke="#3A4D63" stroke-width="2" stroke-dasharray="2 14" opacity=".7"/>
+              </g>
+
+              <!-- moving bags (right-to-left along front) -->
+              <g class="beltflow">
+                <g transform="translate(360 286)"><rect x="-15" y="-19" width="30" height="34" rx="5" fill="#7C8A9C"/><rect x="-15" y="-6" width="30" height="4" fill="#00000022"/><path d="M-7 -19v-4a7 7 0 0 1 14 0v4" fill="none" stroke="#56616F" stroke-width="2.5"/></g>
+                <g transform="translate(300 292)"><rect x="-14" y="-18" width="28" height="32" rx="5" fill="#62708A"/><rect x="-14" y="-5" width="28" height="4" fill="#00000022"/><path d="M-7 -18v-3.5a7 7 0 0 1 14 0v3.5" fill="none" stroke="#454F61" stroke-width="2.5"/></g>
+                <g transform="translate(242 290)"><rect x="-13" y="-17" width="26" height="30" rx="5" fill="#8A93A0"/><rect x="-13" y="-5" width="26" height="4" fill="#00000022"/><path d="M-6 -17v-3.5a6 6 0 0 1 12 0v3.5" fill="none" stroke="#5E6671" stroke-width="2.5"/></g>
+              </g>
+
+              <!-- featured BagPing bag + ping -->
+              <g transform="translate(415 250)">
+                <circle cx="0" cy="-4" r="58" fill="url(#pingG)" class="pinghalo"/>
+                <circle cx="0" cy="-4" r="26" fill="none" stroke="#FFD600" stroke-width="2" class="pingring"/>
+                <circle cx="0" cy="-4" r="26" fill="none" stroke="#FFD600" stroke-width="2" class="pingring pingring2"/>
+                <g class="bagbob">
+                  <rect x="-20" y="-26" width="40" height="46" rx="7" fill="#FFD600"/>
+                  <rect x="-20" y="-26" width="40" height="46" rx="7" fill="none" stroke="#052744" stroke-width="2"/>
+                  <path d="M-10 -26v-5a10 10 0 0 1 20 0v5" fill="none" stroke="#052744" stroke-width="3"/>
+                  <rect x="-20" y="-8" width="40" height="4" fill="#052744" opacity=".85"/>
+                  <circle cx="0" cy="6" r="6" fill="#052744"/>
+                  <circle cx="0" cy="6" r="2.4" fill="#FFD600"/>
+                </g>
+              </g>
+
+              <!-- edge fades -->
+              <rect x="0" y="80" width="60" height="280" fill="url(#fadeL)"/>
+              <rect x="460" y="80" width="60" height="280" fill="url(#fadeR)"/>
+            </g>
+          </svg>
+          <div class="scene-ticker">BagPing pings the moment your bag reaches the belt</div>
+        </div>
+      </div>
+
+      <div class="hero-actions">
+        <div class="hero-cta">
+          <button class="btn btn--yellow" data-checkout>Get your tag</button>
+          <a class="btn btn--ghost" href="#how">See how it works</a>
+        </div>
+        <div class="hero-then">Tag from $39.99 · then the app is free</div>
+        <div class="stores">
+          <a class="store" href="#" data-store="ios" aria-label="Download on the App Store">
+            <svg viewBox="0 0 24 24" fill="#052744" aria-hidden="true"><path d="M16.5 1.6c.1 1-.3 2-1 2.8-.7.8-1.8 1.4-2.8 1.3-.1-1 .4-2 1-2.7.7-.8 1.9-1.4 2.8-1.4zM20 17c-.5 1.2-.8 1.7-1.4 2.7-.9 1.4-2.2 3.1-3.8 3.1-1.4 0-1.8-.9-3.7-.9-1.9 0-2.3.9-3.7.9-1.6 0-2.8-1.5-3.7-2.9C1.3 17 1 13 2.6 10.5c.9-1.4 2.5-2.3 4-2.3 1.5 0 2.4.9 3.7.9 1.2 0 1.9-.9 3.7-.9 1.3 0 2.7.7 3.7 2-3.2 1.8-2.7 6.3.3 6.8z"/></svg>
+            <span><small>Download on the</small><strong>App Store</strong></span>
+          </a>
+          <a class="store" href="#" data-store="android" aria-label="Get it on Google Play">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 2.3 13.4 12 3.6 21.7c-.3-.2-.5-.6-.5-1.1V3.4c0-.5.2-.9.5-1.1z" fill="#0099E6"/><path d="M16.7 8.8 5 2.1c.4-.2.9-.2 1.3.1l11.3 6.5-.9 2z" fill="#006BB5"/><path d="m16.7 15.2.9 2-11.3 6.5c-.4.3-.9.3-1.3.1l11.7-8.6z" fill="#FFD600"/><path d="m20.4 11.1c.7.4.7 1.4 0 1.8l-2.8 1.6-1.8-2.5 1.8-2.5 2.8 1.6z" fill="#052744"/></svg>
+            <span><small>Get it on</small><strong>Google Play</strong></span>
+          </a>
+        </div>
+        <div class="hero-note">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="#22D46A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>One tag, the whole crew. <b>No subscription to use the app.</b></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <svg class="hero-curve" viewBox="0 0 1440 42" preserveAspectRatio="none" aria-hidden="true"><path d="M0 42 C 360 2 1080 2 1440 42 L1440 42 L0 42 Z" fill="#F4F9FE"/></svg>
+</section>
+
+<!-- ═══════════ TRUST STRIP ═══════════ -->
+<section class="strip" aria-label="Highlights">
+  <div class="wrap strip-inner">
+    <span><svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Works in any airport worldwide</span>
+    <span><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Belt-arrival pings in real time</span>
+    <span><svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>18 languages built in</span>
+    <span><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="9" width="16" height="11" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 9V6a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.8"/></svg>Private by design</span>
+  </div>
+</section>
+
+<!-- ═══════════ PROBLEM ═══════════ -->
+<section class="section problem" id="problem">
+  <div class="wrap problem-grid">
+    <div>
+      <span class="eyebrow">The carousel problem</span>
+      <h2 class="h2">The worst moment of travel is an <em>empty belt.</em></h2>
+      <p class="lead">You land tired. You stand at the carousel. Bag after bag goes by — none of them yours — and the quiet dread sets in. Is it lost? Is it coming? Nobody tells you anything.</p>
+      <div class="answer">
+        <span class="c" aria-hidden="true">✓</span>
+        <p><b>BagPing answers the only question that matters:</b> where is my bag, and when does it reach me. The moment your tagged bag comes within range of your phone, you get pinged — before you even see it on the belt.</p>
+      </div>
+    </div>
+    <div class="problem-card">
+      <h3>Without BagPing</h3>
+      <ul class="problem-list">
+        <li><span class="x" aria-hidden="true">✕</span><span>Standing at the belt with zero information, watching strangers' bags go by.</span></li>
+        <li><span class="x" aria-hidden="true">✕</span><span>No idea if your bag made the flight, missed the connection, or is already lost.</span></li>
+        <li><span class="x" aria-hidden="true">✕</span><span>Lost in a foreign terminal with signs you can't read and no one to ask.</span></li>
+        <li><span class="x" aria-hidden="true">✕</span><span>Facing a confusing claim form and an insurance policy written to defeat you.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ HOW IT WORKS ═══════════ -->
+<section class="section how" id="how">
+  <div class="wrap">
+    <span class="eyebrow">How it works</span>
+    <h2 class="h2">From check-in to carousel, in <em>five steps.</em></h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="1.8"/><rect x="4" y="7" width="16" height="13" rx="2" stroke="currentColor" stroke-width="1.8"/></svg></div>
+        <h4>Tag your bag</h4>
+        <p>Slip the BLE BagPing tag into any suitcase. No wires, no setup beyond a tap.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 18h.01M8 21h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1z" stroke="currentColor" stroke-width="1.8"/></svg></div>
+        <h4>Pair the app</h4>
+        <p>Open BagPing, tap the tag once. Your bag is now linked to your phone.</p>
+      </div>
+      <div class="step is-key">
+        <div class="step-num">03</div>
+        <div class="step-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v2M12 19v2M3 12h2M19 12h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/></svg></div>
+        <h4>Get pinged</h4>
+        <p>The instant your bag comes within range of your phone at the carousel, BagPing pings you — you know first.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+        <h4>Ask your crew</h4>
+        <p>Five AI specialists handle your flight, the terminal, your claim and your policy — in your language.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">05</div>
+        <div class="step-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h4>Walk out sure</h4>
+        <p>Bag in hand, questions answered, no standing around wondering. That's the whole point.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ AI TRAVEL CREW ═══════════ -->
+<section class="section crew" id="crew">
+  <div class="wrap">
+    <div class="crew-head">
+      <div>
+        <span class="eyebrow">AI Travel Crew</span>
+        <h2 class="h2">Five specialists, <em>one tap away.</em></h2>
+        <p class="lead">Every BagPing user gets the full crew in the app — open to everyone, in 18 languages. No tag required to chat.</p>
+      </div>
+    </div>
+    <div class="crew-grid">
+      <div class="crew-card">
+        <div class="crew-top"><div class="crew-ic"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="7" width="16" height="13" rx="2" stroke="#fff" stroke-width="1.8"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" stroke="#fff" stroke-width="1.8"/></svg></div><span class="crew-no">01</span></div>
+        <h4>Bag <em>Tracker</em></h4>
+        <p>Real-time status on your tagged bag, belt-arrival pings, and a clear answer to "where is it right now."</p>
+      </div>
+      <div class="crew-card">
+        <div class="crew-top"><div class="crew-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1L15 22v-1.5L13 19v-5.5L21 16z" fill="#fff"/></svg></div><span class="crew-no">02</span></div>
+        <h4>Flight <em>Desk</em></h4>
+        <p>Live flight status, gate changes, delays and connection risk — pushed to you before the board updates.</p>
+      </div>
+      <div class="crew-card">
+        <div class="crew-top"><div class="crew-ic"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="10" r="3" stroke="#fff" stroke-width="1.8"/><path d="M12 2a8 8 0 0 0-8 8c0 5 8 12 8 12s8-7 8-12a8 8 0 0 0-8-8z" stroke="#fff" stroke-width="1.8"/></svg></div><span class="crew-no">03</span></div>
+        <h4>Travel <em>Guide</em></h4>
+        <p>On-the-ground help in any terminal — transit, food, lounges and directions, in the local language.</p>
+      </div>
+      <div class="crew-card">
+        <div class="crew-top"><div class="crew-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="#fff" stroke-width="1.8"/><path d="M14 2v6h6M9 13h6M9 17h4" stroke="#fff" stroke-width="1.8"/></svg></div><span class="crew-no">04</span></div>
+        <h4>Claim <em>Helper</em></h4>
+        <p>If a bag goes missing, it drafts your delayed- or lost-baggage claim, the right way, in minutes.</p>
+      </div>
+      <div class="crew-card">
+        <div class="crew-top"><div class="crew-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2 3 7v6c0 5 4 9 9 11 5-2 9-6 9-11V7l-9-5z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></svg></div><span class="crew-no">05</span></div>
+        <h4>Policy <em>Reader</em></h4>
+        <p>Paste your travel-insurance policy and get plain answers: what's covered, what's not, what to do next.</p>
+      </div>
+      <div class="crew-card" style="display:flex;flex-direction:column;justify-content:center;background:linear-gradient(135deg,var(--blue),var(--deep));border:0;color:#fff;">
+        <h4 style="color:#fff;font-family:var(--font-serif);">In your <em style="color:var(--yellow);">language.</em></h4>
+        <p style="color:rgba(255,255,255,.85);">All five specialists speak 18 languages — ask in yours, get answered in yours.</p>
+        <button class="btn btn--yellow" data-checkout style="margin-top:18px;align-self:flex-start;">Get your tag</button>
+      </div>
+    </div>
+    <div class="crew-foot">
+      <div>
+        <h3>The tag pings. The crew handles the rest.</h3>
+        <p>One purchase covers the BLE tag. The app and the full AI Travel Crew are free to use.</p>
+      </div>
+      <button class="btn btn--ink" data-checkout>Get your tag — from $39.99</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ COMPARE ═══════════ -->
+<section class="section compare" id="compare">
+  <div class="wrap">
+    <span class="eyebrow">Why BagPing</span>
+    <h2 class="h2">Not just a tracker. A <em>whole arrival.</em></h2>
+    <div class="table" role="table" aria-label="BagPing compared to a generic Bluetooth tracker">
+      <div class="trow thead" role="row">
+        <div role="columnheader">Feature</div>
+        <div role="columnheader" class="them">Generic BLE tracker</div>
+        <div role="columnheader" class="tus">BagPing</div>
+      </div>
+      <div class="trow" role="row">
+        <div class="tfeat" role="cell">Belt-arrival ping at the carousel</div>
+        <div class="tno" role="cell">Location dot only</div>
+        <div class="tus" role="cell"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Real-time</div>
+      </div>
+      <div class="trow" role="row">
+        <div class="tfeat" role="cell">Live flight tracking &amp; gate changes</div>
+        <div class="tno" role="cell">—</div>
+        <div class="tus" role="cell"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Built in</div>
+      </div>
+      <div class="trow" role="row">
+        <div class="tfeat" role="cell">On-the-ground airport guidance</div>
+        <div class="tno" role="cell">—</div>
+        <div class="tus" role="cell"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>AI crew</div>
+      </div>
+      <div class="trow" role="row">
+        <div class="tfeat" role="cell">Lost-baggage claim drafting</div>
+        <div class="tno" role="cell">—</div>
+        <div class="tus" role="cell"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>In minutes</div>
+      </div>
+      <div class="trow" role="row">
+        <div class="tfeat" role="cell">Insurance policy reader</div>
+        <div class="tno" role="cell">—</div>
+        <div class="tus" role="cell"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Plain answers</div>
+      </div>
+      <div class="trow" role="row">
+        <div class="tfeat" role="cell">Works in your language</div>
+        <div class="them" role="cell">English only</div>
+        <div class="tus" role="cell"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>18 languages</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ LANGUAGES ═══════════ -->
+<section class="section langs" id="languages">
+  <div class="wrap">
+    <span class="eyebrow">18 languages</span>
+    <h2 class="h2">Travel anywhere. <em>Be understood everywhere.</em></h2>
+    <p class="lead">The app and the entire AI Travel Crew speak all of these — set it once, or let it follow your phone.</p>
+    <div class="lang-cloud">
+      <span class="lang-pill">English</span>
+      <span class="lang-pill">Español</span>
+      <span class="lang-pill">Français</span>
+      <span class="lang-pill">Deutsch</span>
+      <span class="lang-pill">Italiano</span>
+      <span class="lang-pill">Português</span>
+      <span class="lang-pill is-rtl">العربية</span>
+      <span class="lang-pill">中文</span>
+      <span class="lang-pill">日本語</span>
+      <span class="lang-pill">한국어</span>
+      <span class="lang-pill">Русский</span>
+      <span class="lang-pill">Nederlands</span>
+      <span class="lang-pill">Polski</span>
+      <span class="lang-pill">Türkçe</span>
+      <span class="lang-pill">Svenska</span>
+      <span class="lang-pill">Dansk</span>
+      <span class="lang-pill">Suomi</span>
+      <span class="lang-pill">Ελληνικά</span>
+      <span class="lang-pill is-rtl">עברית</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ DOWNLOAD ═══════════ -->
+<section class="section download" id="download">
+  <div class="wrap dl-inner">
+    <div>
+      <span class="eyebrow">Get the app</span>
+      <h2 class="h2">The app is free. <em>Download it now.</em></h2>
+      <p class="lead">Chat with the full AI Travel Crew today — no tag required to start. Add a BagPing tag whenever you're ready for belt-arrival pings.</p>
+      <div class="dl-actions">
+        <a class="store" href="#" data-store="ios" aria-label="Download on the App Store">
+          <svg viewBox="0 0 24 24" fill="#052744" aria-hidden="true"><path d="M16.5 1.6c.1 1-.3 2-1 2.8-.7.8-1.8 1.4-2.8 1.3-.1-1 .4-2 1-2.7.7-.8 1.9-1.4 2.8-1.4zM20 17c-.5 1.2-.8 1.7-1.4 2.7-.9 1.4-2.2 3.1-3.8 3.1-1.4 0-1.8-.9-3.7-.9-1.9 0-2.3.9-3.7.9-1.6 0-2.8-1.5-3.7-2.9C1.3 17 1 13 2.6 10.5c.9-1.4 2.5-2.3 4-2.3 1.5 0 2.4.9 3.7.9 1.2 0 1.9-.9 3.7-.9 1.3 0 2.7.7 3.7 2-3.2 1.8-2.7 6.3.3 6.8z"/></svg>
+          <span><small>Download on the</small><strong>App Store</strong></span>
+        </a>
+        <a class="store" href="#" data-store="android" aria-label="Get it on Google Play">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 2.3 13.4 12 3.6 21.7c-.3-.2-.5-.6-.5-1.1V3.4c0-.5.2-.9.5-1.1z" fill="#0099E6"/><path d="M16.7 8.8 5 2.1c.4-.2.9-.2 1.3.1l11.3 6.5-.9 2z" fill="#006BB5"/><path d="m16.7 15.2.9 2-11.3 6.5c-.4.3-.9.3-1.3.1l11.7-8.6z" fill="#FFD600"/><path d="m20.4 11.1c.7.4.7 1.4 0 1.8l-2.8 1.6-1.8-2.5 1.8-2.5 2.8 1.6z" fill="#052744"/></svg>
+          <span><small>Get it on</small><strong>Google Play</strong></span>
+        </a>
+      </div>
+    </div>
+    <div class="dl-phone" aria-hidden="true">
+      <div class="dl-notch"></div>
+      <div class="scr">
+        <div class="mini-brand">
+          <span class="brand-mark" style="width:28px;height:28px;border-radius:8px;"><svg viewBox="0 0 24 24" fill="none" style="width:17px;height:17px;"><rect x="4" y="7" width="16" height="13" rx="2" stroke="#fff" stroke-width="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" stroke="#fff" stroke-width="2"/><circle cx="17" cy="13" r="1.5" fill="#FFD600"/></svg></span>
+          <span class="brand-word">Bag<em>Ping</em></span>
+        </div>
+        <div class="mini-card">
+          <div class="mc-eta">02:14</div>
+          <div class="mc-lab">Bag ETA · carousel 7</div>
+        </div>
+        <div class="mini-row"><span class="md"></span><span>Flight Desk · on time, gate B12</span></div>
+        <div class="mini-row"><span class="md"></span><span>Travel Guide · taxi rank, exit 3</span></div>
+        <div class="mini-row"><span class="md" style="background:var(--yellow);"></span><span>Bag Tracker · 4 bags away</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PRICING ═══════════ -->
+<section class="section price" id="pricing">
+  <div class="wrap">
+    <div style="text-align:center;">
+      <span class="eyebrow" style="justify-content:center;">Pricing</span>
+      <h2 class="h2">One tag. <em>Then everything's free.</em></h2>
+      <p class="lead" style="margin:14px auto 0;">Buy the BLE tag once. The app and all five AI Travel Crew specialists cost nothing to use — no subscription, ever.</p>
+    </div>
+    <div class="price-card">
+      <div class="price-tag">$39.99<small> / tag</small></div>
+      <p class="sub">Bundle and save — covers the whole family's luggage.</p>
+      <ul class="price-incl">
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>One BLE BagPing tag, ready to pair</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Belt-arrival pings at any airport</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Free app + full AI Travel Crew, 18 languages</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>No subscription — buy once, use forever</li>
+      </ul>
+      <button class="btn btn--yellow" data-checkout style="width:100%;font-size:16px;padding:16px;">Get your tag</button>
+      <p style="font-size:12.5px;color:var(--muted);margin-top:14px;">Bundles: 1 for $39.99 · 2 for $69.99 · 3 for $94.99 · 5 for $149.99</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div style="max-width:300px;">
+        <a class="brand" href="#top" aria-label="BagPing home" style="margin-bottom:14px;">
+          <span class="brand-mark" style="border-radius:10px;">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="7" width="16" height="13" rx="2" stroke="#fff" stroke-width="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" stroke="#fff" stroke-width="2"/><circle cx="17" cy="13" r="1.5" fill="#FFD600"/></svg>
+          </span>
+          <span class="brand-word">Bag<em>Ping</em></span>
+        </a>
+        <p style="font-size:14px;color:var(--muted);line-height:1.6;">Get pinged the moment your bag reaches the belt — plus a five-member AI Travel Crew, in 18 languages.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h5>Product</h5>
+          <a href="#how">How it works</a>
+          <a href="#crew">AI Travel Crew</a>
+          <a href="#compare">Compare</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#download">Download</a>
+        </div>
+        <div class="foot-col">
+          <h5>Company</h5>
+          <a href="https://bagping.com">bagping.com</a>
+          <a href="mailto:support@bionectech.com">support@bionectech.com</a>
+          <a href="#" data-legal="privacy">Privacy Policy</a>
+          <a href="#" data-legal="terms">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr">2026</span> Bionectech, Inc. · 5900 Balcones Drive #27154, Austin, TX 78731</span>
+      <span>Made for travelers who'd rather know.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════ CHECKOUT MODAL ═══════════ -->
+<div class="co" id="checkout" role="dialog" aria-modal="true" aria-labelledby="coTitle">
+  <div class="co-card">
+    <div class="co-head">
+      <span class="co-logo">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="7" width="16" height="13" rx="2" stroke="#fff" stroke-width="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" stroke="#fff" stroke-width="2"/><circle cx="17" cy="13" r="1.5" fill="#FFD600"/></svg>
+      </span>
+      <div class="co-titles">
+        <div class="co-title" id="coTitle">Get your BagPing tag</div>
+        <span class="co-secure"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="16" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="2"/></svg>Secure checkout by Stripe</span>
+      </div>
+      <button class="co-close" id="coClose" aria-label="Close checkout">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M18 6 6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="co-body">
+      <div class="co-h">How many bags are you tagging?</div>
+      <p class="co-p">The app and AI Travel Crew are free — you're only paying for the tag(s).</p>
+      <div class="co-qty" role="group" aria-label="Quantity">
+        <button class="co-pill on" data-qty="1">1</button>
+        <button class="co-pill" data-qty="2">2</button>
+        <button class="co-pill" data-qty="3">3</button>
+        <button class="co-pill" data-qty="5">5</button>
+      </div>
+      <div class="co-sum">
+        <div class="co-line"><span class="k">BagPing tag <small id="coUnit">1 × $39.99</small></span><span class="v" id="coTags">$39.99</span></div>
+        <div class="co-line"><span class="k">BagPing app + AI Travel Crew</span><span class="v free">Free</span></div>
+        <div class="co-line"><span class="k">Shipping</span><span class="v free">Free</span></div>
+        <div class="co-line total"><span class="k">Total</span><span class="v" id="coTotal">$39.99</span></div>
+      </div>
+      <div class="co-trust">
+        <span><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="16" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="2"/></svg>256-bit encrypted</span>
+        <span><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>30-day returns</span>
+        <span><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Ships in 2 business days</span>
+      </div>
+      <button class="co-pay" id="coPay">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="16" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="2"/></svg>
+        <span id="coPayLabel">Pay $39.99 securely</span>
+      </button>
+      <p class="co-note" id="coNote"><b>Checkout opens with Stripe.</b> You'll confirm shipping and payment on the secure Stripe page.</p>
+      <div class="co-app">The <b>BagPing app</b> stays free for everyone — <a href="#download">download it here</a> while your tag ships.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ LEGAL: PRIVACY ═══════════ -->
+<div class="legal-modal" id="legal-privacy" role="dialog" aria-modal="true" aria-labelledby="privTitle">
+  <div class="lm-card">
+    <div class="lm-head">
+      <strong id="privTitle">Privacy Policy</strong>
+      <button class="lm-close" data-legal-close aria-label="Close">×</button>
+    </div>
+    <div class="lm-body">
+      <p><strong>BagPing, a product of Bionectech, Inc.</strong> Last updated 2026. This policy explains what we collect, why, and the control you keep.</p>
+      <h4>What we collect</h4>
+      <p>We collect the minimum needed to run BagPing: your account details (phone number for verification), the bags you add, and your language preference. Bag-proximity detection happens between the BLE tag and your own phone — BagPing does not track your bag on a global location network.</p>
+      <h4>How the AI Travel Crew uses your input</h4>
+      <p>When you chat with a crew specialist, your message is processed to generate a reply. Don't paste more personal detail than a question needs. Insurance text you submit to the Policy Reader is used only to answer you in that session.</p>
+      <h4>What we never do</h4>
+      <p>We don't sell your personal data. We don't show third-party advertising inside the app. We don't share your travel patterns with airlines or insurers.</p>
+      <h4>Your control</h4>
+      <p>You can delete a bag, clear your chats, or remove your account at any time. Removing your account erases your stored profile from our systems.</p>
+      <h4>Contact</h4>
+      <p>Questions about privacy: <strong>support@bionectech.com</strong> — Bionectech, Inc., 5900 Balcones Drive #27154, Austin, TX 78731.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ LEGAL: TERMS ═══════════ -->
+<div class="legal-modal" id="legal-terms" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
+  <div class="lm-card">
+    <div class="lm-head">
+      <strong id="termsTitle">Terms of Service</strong>
+      <button class="lm-close" data-legal-close aria-label="Close">×</button>
+    </div>
+    <div class="lm-body">
+      <p><strong>BagPing, a product of Bionectech, Inc.</strong> Last updated 2026. By using BagPing you agree to these terms.</p>
+      <h4>What BagPing is</h4>
+      <p>BagPing pairs a BLE tag with your phone to ping you when your bag is within range — typically as it reaches the carousel. It is a convenience aid, not a guaranteed global tracking or recovery service. Range depends on your phone, the environment, and Bluetooth conditions.</p>
+      <h4>The tag and the app</h4>
+      <p>The BLE tag is a one-time purchase. The BagPing app and the AI Travel Crew are free to use and require no subscription. Tag pricing: 1 for $39.99, 2 for $69.99, 3 for $94.99, 5 for $149.99.</p>
+      <h4>AI Travel Crew — informational only</h4>
+      <p>The AI Travel Crew provides general travel assistance: flight information, airport guidance, claim drafting and policy explanation. Its output is informational and may be incomplete or out of date. Always confirm critical details (gates, deadlines, coverage) with the airline, airport or insurer directly. Drafted claims are starting points you review and submit yourself.</p>
+      <h4>Acceptable use</h4>
+      <p>Don't misuse the service, attempt to disrupt it, or use it unlawfully. Tags are for personal luggage tracking with your own phone.</p>
+      <h4>Returns &amp; warranty</h4>
+      <p>Tags carry a 30-day return window in original condition. Manufacturing defects are covered — contact support to arrange a replacement.</p>
+      <h4>Liability</h4>
+      <p>BagPing is provided "as is." Bionectech, Inc. is not liable for missed pings, lost or delayed baggage, or decisions made from AI Travel Crew output. Your remedy for a defective tag is replacement or refund.</p>
+      <h4>Contact</h4>
+      <p><strong>support@bionectech.com</strong> — Bionectech, Inc., 5900 Balcones Drive #27154, Austin, TX 78731.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ───── year ───── */
+  var yr = document.getElementById('yr');
+  if (yr) yr.textContent = new Date().getFullYear();
+
+  /* ═══════ STRIPE CHECKOUT — operator slots, fail-safe ═══════
+     Paste your real Stripe Payment Links below. Until then, the
+     button shows a friendly "not connected yet" message and does
+     NOT pretend to charge anyone. */
+  var CHECKOUT_URLS = {
+    1:'https://buy.stripe.com/eVq9AT08P7pzdqq9oD4Ni00',
+    2:'https://buy.stripe.com/8x2dR91cT5hreuu7gv4Ni01',
+    3:'https://buy.stripe.com/8x214ndZF9xHcmm9oD4Ni02',
+    5:'https://buy.stripe.com/9B6fZh3l19xH4TU9oD4Ni03'
+  };
+
+  var PRICES = { 1:39.99, 2:69.99, 3:94.99, 5:149.99 };
+  var UNIT = 39.99;
+  var qty = 1;
+
+  var co        = document.getElementById('checkout');
+  var coClose   = document.getElementById('coClose');
+  var coTags    = document.getElementById('coTags');
+  var coTotal   = document.getElementById('coTotal');
+  var coUnit    = document.getElementById('coUnit');
+  var coPay     = document.getElementById('coPay');
+  var coPayLabel= document.getElementById('coPayLabel');
+  var coNote    = document.getElementById('coNote');
+  var pills     = document.querySelectorAll('.co-pill');
+  var lastFocus = null;
+
+  function money(n){ return '$' + n.toFixed(2); }
+
+  function paint(){
+    var price = PRICES[qty] || (UNIT * qty);
+    coUnit.textContent  = qty + ' × ' + money(UNIT);
+    coTags.textContent  = money(price);
+    coTotal.textContent = money(price);
+    coPayLabel.textContent = 'Pay ' + money(price) + ' securely';
+  }
+
+  function openCheckout(){
+    lastFocus = document.activeElement;
+    co.classList.add('on');
+    document.body.style.overflow = 'hidden';
+    coClose.focus();
+  }
+  function closeCheckout(){
+    co.classList.remove('on');
+    document.body.style.overflow = '';
+    coNote.innerHTML = '<b>Checkout opens with Stripe.</b> You\'ll confirm shipping and payment on the secure Stripe page.';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  document.querySelectorAll('[data-checkout]').forEach(function(b){
+    b.addEventListener('click', openCheckout);
+  });
+  if (coClose) coClose.addEventListener('click', closeCheckout);
+  if (co) co.addEventListener('click', function(e){ if (e.target === co) closeCheckout(); });
+
+  pills.forEach(function(p){
+    p.addEventListener('click', function(){
+      pills.forEach(function(x){ x.classList.remove('on'); });
+      p.classList.add('on');
+      qty = parseInt(p.getAttribute('data-qty'), 10) || 1;
+      paint();
+    });
+  });
+
+  if (coPay) coPay.addEventListener('click', function(){
+    var url = CHECKOUT_URLS[qty];
+    if (url && /^https?:\/\//.test(url)) {
+      window.location.href = url;          // real Stripe Payment Link
+    } else {
+      // fail-safe: nothing connected yet — never fake a charge
+      coNote.innerHTML = '<b>Checkout isn\'t connected yet.</b> Add your Stripe Payment Links to <code>CHECKOUT_URLS</code> to go live. No payment was taken.';
+      coNote.style.color = 'var(--red)';
+      setTimeout(function(){ coNote.style.color = ''; }, 4000);
+    }
+  });
+
+  paint();
+
+  /* ───── store CTA placeholder guard ───── */
+  document.querySelectorAll('[data-store]').forEach(function(s){
+    s.addEventListener('click', function(e){
+      if (s.getAttribute('href') === '#') {
+        e.preventDefault();
+        var t = document.createElement('div');
+        t.textContent = 'App Store / Google Play links go live at launch.';
+        t.style.cssText = 'position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:#052744;color:#fff;padding:11px 20px;border-radius:999px;font-size:13px;font-weight:600;z-index:300;box-shadow:0 10px 30px rgba(5,39,68,.4);';
+        document.body.appendChild(t);
+        setTimeout(function(){ t.remove(); }, 2600);
+      }
+    });
+  });
+
+  /* ───── legal modals ───── */
+  function openLegal(which){
+    var m = document.getElementById('legal-' + which);
+    if (!m) return;
+    m.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    var c = m.querySelector('[data-legal-close]');
+    if (c) c.focus();
+  }
+  function closeLegal(m){
+    m.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('[data-legal]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      openLegal(a.getAttribute('data-legal'));
+    });
+  });
+  document.querySelectorAll('[data-legal-close]').forEach(function(b){
+    b.addEventListener('click', function(){ closeLegal(b.closest('.legal-modal')); });
+  });
+  document.querySelectorAll('.legal-modal').forEach(function(m){
+    m.addEventListener('click', function(e){ if (e.target === m) closeLegal(m); });
+  });
+
+  /* ───── escape closes any overlay ───── */
+  document.addEventListener('keydown', function(e){
+    if (e.key !== 'Escape') return;
+    if (co.classList.contains('on')) closeCheckout();
+    document.querySelectorAll('.legal-modal.is-open').forEach(closeLegal);
+  });
+
+})();
+</script>
+
+<style>
+/* ── carousel scene animations (kept with reduced-motion guard above) ── */
+.beltflow > g{animation:beltrun 9s linear infinite;}
+@keyframes beltrun{
+  0%{transform:translateX(40px)}
+  100%{transform:translateX(-150px)}
+}
+.bagbob{animation:bob 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center;}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.pingring{transform-box:fill-box;transform-origin:center;animation:pingexp 2s ease-out infinite;}
+.pingring2{animation-delay:1s;}
+@keyframes pingexp{0%{transform:scale(.5);opacity:.9}100%{transform:scale(2.1);opacity:0}}
+.pinghalo{transform-box:fill-box;transform-origin:center;animation:halo 2.6s ease-in-out infinite;}
+@keyframes halo{0%,100%{opacity:.4}50%{opacity:.85}}
+@media(prefers-reduced-motion:reduce){
+  .beltflow>g,.bagbob,.pingring,.pinghalo{animation:none!important;}
+}
+</style>
+
+</body>
+</html>
