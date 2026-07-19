@@ -2,408 +2,293 @@
 <html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Cache-Control" content="max-age=60, must-revalidate">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#07111C">
-<title>BagPing — Get pinged the moment your bag reaches the belt</title>
-<meta name="description" content="You're at the carousel with no idea when your bag is coming. BagPing pings the moment it's near — and a five-member AI Travel Crew tracks your flight, guides you on the ground in any airport, drafts your claim, and reads your insurance. In 18 languages, in the app.">
-<meta property="og:title" content="BagPing — Get pinged the moment your bag reaches the belt">
-<meta property="og:description" content="BLE bag tracking + a five-member AI Travel Crew. In 18 languages, in the app.">
+<meta name="theme-color" content="#031C31">
+<title>BagPing — Your bag hits the belt. You know first.</title>
+<meta name="description" content="BagPing pings the moment your bag reaches the belt. One BLE tag, a five-member AI Travel Crew, 18 languages. The app is free. No subscription, ever.">
+<meta property="og:title" content="BagPing — Your bag hits the belt. You know first.">
+<meta property="og:description" content="The tag pings. The Crew handles everything else. 18 languages, no subscription.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bagping.com/">
 <meta property="og:image" content="https://bagping.com/bagping-og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="BagPing — your phone pings the moment your bag reaches the belt. BLE tracking plus a five-member AI Travel Crew.">
+<meta property="og:image:alt" content="BagPing — your phone pings the moment your bag reaches the belt.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="BagPing — Get pinged the moment your bag reaches the belt">
-<meta name="twitter:description" content="BLE bag tracking + a five-member AI Travel Crew. In 18 languages, in the app.">
+<meta name="twitter:title" content="BagPing — Your bag hits the belt. You know first.">
+<meta name="twitter:description" content="The tag pings. The Crew handles everything else. 18 languages, no subscription.">
 <meta name="twitter:image" content="https://bagping.com/bagping-og-image.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="https://bagping.com/manifest.json">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="BagPing">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%230099E6'/%3E%3Crect x='4' y='7' width='16' height='13' rx='2' fill='none' stroke='%23fff' stroke-width='2'/%3E%3Cpath d='M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2' fill='none' stroke='%23fff' stroke-width='2'/%3E%3Ccircle cx='17' cy='13' r='1.5' fill='%23FFD600'/%3E%3C/svg%3E">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ════════ BagPing brand tokens — unified app + site ════════
-   COLOR INTENSITY PASS: light tokens deepened so blue reads as
-   blue; borders/shadows strengthened; brand colors used as
-   FIELDS (crew + download on saturated blue, strip on yellow,
-   footer on navy). Palette unchanged: #0099E6 #006BB5 #FFD600
-   #FFFFFF #052744. */
+/* ================= BagPing — one design system with the app =================
+   The app is the reference: dark navy field, blue glass cards, yellow badges
+   and keylines, DM Serif Display + Outfit, the orbiting carousel.
+   Palette (locked): #0099E6  #006BB5  #FFD600  #FFFFFF  #052744            */
 :root{
-  --blue:#0099E6;
+  --ink:#052744;
+  --sky:#0099E6;
   --deep:#006BB5;
-  --ink:#052744;          /* navy ink */
   --yellow:#FFD600;
-  --yellow-hi:#FFE24D;    /* bright top-light for richer yellow fills */
-  --yellow-deep:#FFC000;
-  --yellow-shadow:#B88A00;
-
-  --hero:#07111C;         /* dramatic dark hero base */
-  --hero-2:#03192B;
-  --hero-3:#040D16;
-
-  --paper:#FFFFFF;
-  --body:#D6EAFB;         /* visibly blue body — was near-white */
-  --body-2:#BCDDF7;       /* deep tint surface */
-  --cream:#BCDDF7;
-  --sky:#A9D6F7;
-
-  --text:#0A1628;
-  --text-soft:#28384C;
-  --muted:#3E5673;        /* darkened for AA on the deeper tints */
-  --line:#8FBFE6;         /* borders that actually show */
-
-  --green:#16A34A;
-  --green-live:#22D46A;
-  --red:#DC2626;
-
-  --r-sm:10px; --r-md:16px; --r-lg:24px; --r-xl:32px; --r-pill:999px;
-  --shadow-card:0 1px 0 rgba(5,39,68,.08), 0 18px 48px rgba(5,39,68,.24);
-  --shadow-soft:0 10px 34px rgba(5,39,68,.2);
-  --shadow-yellow:0 5px 0 var(--yellow-shadow), 0 14px 34px rgba(255,214,0,.5);
-
+  --white:#FFFFFF;
+  --glass:rgba(0,153,230,.13);
+  --glass-border:rgba(0,153,230,.40);
+  --muted:rgba(255,255,255,.66);
+  --soft:rgba(255,255,255,.82);
+  --card:linear-gradient(160deg,rgba(0,153,230,.20),rgba(0,107,181,.07));
+  --card-shadow:0 16px 44px rgba(0,0,0,.45);
+  --radius:20px;
+  --radius-sm:12px;
+  --font-serif:'DM Serif Display',Georgia,serif;
   --font-ui:'Outfit',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-  --font-serif:'DM Serif Display',Georgia,'Times New Roman',serif;
   --maxw:1120px;
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
-body{
-  font-family:var(--font-ui);
-  color:var(--text);
-  background:var(--body);
-  line-height:1.55;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-a{color:var(--deep);text-decoration:none;}
-img,svg{display:block;max-width:100%;}
-button{font-family:inherit;cursor:pointer;border:0;background:transparent;color:inherit;}
-:focus-visible{outline:3px solid var(--yellow);outline-offset:2px;border-radius:6px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-ui);font-weight:400;color:var(--white);background:#031C31;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg{position:fixed;inset:0;z-index:0;background:linear-gradient(160deg,#031C31 0%,#084173 48%,#021320 100%)}
+.bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 10%,rgba(0,153,230,.30) 0%,transparent 70%);pointer-events:none}
+main,header,footer{position:relative;z-index:1}
+a{color:var(--sky);text-decoration:none}
+img,svg{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:0;background:transparent;color:inherit}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:2px;border-radius:6px}
 
-/* ───── layout helpers ───── */
-.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 22px;}
-.section{padding:84px 0;}
-.eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--deep);
-}
-.eyebrow::before{content:"";width:22px;height:2px;background:var(--yellow);border-radius:2px;box-shadow:0 0 8px rgba(255,214,0,.6);}
-.h2{font-family:var(--font-serif);font-weight:400;font-size:clamp(30px,4.4vw,46px);line-height:1.06;letter-spacing:-.01em;color:var(--ink);}
-.h2 em{font-style:italic;color:var(--deep);}
-.lead{font-size:clamp(16px,1.7vw,19px);color:var(--text-soft);max-width:62ch;margin-top:14px;}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.section{padding:88px 0}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--sky)}
+.eyebrow::before{content:"";width:20px;height:3px;background:var(--yellow);border-radius:2px;box-shadow:0 0 8px rgba(255,214,0,.55)}
+.h2{font-family:var(--font-serif);font-weight:400;font-size:clamp(30px,4.4vw,46px);line-height:1.08;letter-spacing:-.01em;color:#fff;margin-top:14px}
+.h2 em{font-style:italic;color:var(--yellow)}
+.lead{font-size:clamp(15.5px,1.7vw,18.5px);color:var(--muted);max-width:60ch;margin-top:14px}
+.lead b{color:#fff;font-weight:600}
 
-/* ───── buttons ───── */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
-  font-weight:700;font-size:15px;padding:14px 22px;border-radius:var(--r-pill);
-  transition:transform .12s ease, box-shadow .2s ease, background .2s ease;white-space:nowrap;}
-.btn--yellow{background:linear-gradient(180deg,var(--yellow-hi),var(--yellow) 55%,var(--yellow-deep));color:var(--ink);border-radius:14px;box-shadow:var(--shadow-yellow);}
-.btn--yellow:hover{background:linear-gradient(180deg,var(--yellow-hi),var(--yellow) 55%,var(--yellow-deep));transform:translateY(-2px);box-shadow:0 7px 0 var(--yellow-shadow),0 20px 46px rgba(255,214,0,.62);}
-.btn--yellow:active{transform:translateY(2px);box-shadow:0 2px 0 var(--yellow-shadow),0 5px 14px rgba(255,214,0,.32);}
-.btn--blue{background:linear-gradient(135deg,var(--blue),var(--deep));color:#fff;box-shadow:0 12px 28px rgba(0,153,230,.42);}
-.btn--blue:hover{background:var(--deep);}
-.btn--ghost{background:#fff;color:var(--deep);border:1.5px solid var(--deep);}
-.btn--ghost:hover{border-color:var(--blue);background:var(--sky);}
-.btn--ink{background:linear-gradient(135deg,#0A3A63,var(--ink));color:#fff;box-shadow:0 12px 30px rgba(5,39,68,.34);}
-.btn--ink:hover{background:#0a3a63;}
+/* glass card — the app's card, verbatim */
+.glass{background:var(--card);border:1px solid var(--glass-border);border-radius:var(--radius);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:var(--card-shadow)}
+.badge-no{font-family:var(--font-serif);font-size:13px;line-height:1;color:var(--ink);background:var(--yellow);padding:4px 11px;border-radius:999px;box-shadow:0 2px 8px rgba(255,214,0,.45)}
 
-/* ════════ NAV ════════ */
-.nav{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.9);backdrop-filter:saturate(170%) blur(14px);border-bottom:2px solid var(--deep);}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;}
-.brand{display:flex;align-items:center;gap:10px;}
-/* ── UNIFIED APP LOGO TILE ── */
-.brand-mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(150deg,var(--blue),var(--deep));display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 3px 12px rgba(0,107,181,.5);}
-.brand-mark svg{width:21px;height:21px;}
-.brand-word{font-family:var(--font-serif);font-size:23px;line-height:1;color:var(--ink);letter-spacing:-.2px;}
-.brand-word em{font-style:normal;color:var(--yellow-deep);}
-.nav-right{display:flex;align-items:center;gap:14px;}
-.nav-links{display:flex;align-items:center;gap:26px;}
-.nav-links a{color:var(--text-soft);font-weight:600;font-size:14.5px;}
-.nav-links a:hover{color:var(--deep);}
-.lang{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:700;color:var(--deep);background:var(--sky);border:1px solid var(--deep);padding:8px 12px;border-radius:var(--r-pill);}
+/* buttons — the app's yellow primary with its top-light */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:700;font-size:15px;padding:14px 24px;border-radius:var(--radius-sm);transition:opacity .15s,transform .12s;white-space:nowrap;letter-spacing:.01em}
+.btn--yellow{background:linear-gradient(180deg,rgba(255,255,255,.28),rgba(255,255,255,0) 55%),var(--yellow);color:var(--ink);box-shadow:0 6px 18px rgba(255,214,0,.22)}
+.btn--yellow:hover{transform:translateY(-1px)}
+.btn--yellow:active{opacity:.82;transform:none}
+.btn--blue{background:linear-gradient(160deg,var(--sky),var(--deep));color:#fff;box-shadow:0 6px 16px rgba(0,153,230,.3)}
+.btn--blue:active{opacity:.82}
+.btn--ghost{background:rgba(255,255,255,.07);color:#fff;border:1px solid var(--glass-border)}
+.btn--ghost:hover{background:rgba(255,255,255,.13)}
 
-/* ════════ HERO — dramatic dark, matched to the ad (unchanged) ════════ */
-.hero{position:relative;overflow:hidden;background:var(--hero);color:#fff;border-bottom:0;}
-.hero-bg{position:absolute;inset:0;pointer-events:none;
-  background:
-    radial-gradient(ellipse 92% 58% at 50% -4%, rgba(0,153,230,.58) 0%, rgba(0,107,181,.22) 40%, transparent 68%),
-    radial-gradient(ellipse 58% 42% at 84% 92%, rgba(0,153,230,.22) 0%, transparent 58%),
-    radial-gradient(ellipse 50% 40% at 12% 62%, rgba(0,107,181,.15) 0%, transparent 60%),
-    linear-gradient(180deg, var(--hero-2) 0%, var(--hero) 56%, var(--hero-3) 100%);}
-.hero-dots{position:absolute;inset:0;pointer-events:none;
-  background-image:
-    radial-gradient(rgba(0,153,230,.2) 1px, transparent 1.4px),
-    radial-gradient(rgba(255,255,255,.045) 1px, transparent 1.4px);
-  background-size:24px 24px, 24px 24px;
-  background-position:0 0, 12px 12px;
-  -webkit-mask-image:radial-gradient(ellipse 85% 78% at 50% 42%, #000 34%, transparent 100%);
-  mask-image:radial-gradient(ellipse 85% 78% at 50% 42%, #000 34%, transparent 100%);}
-.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;grid-template-areas:"copy stage" "actions stage";gap:8px 48px;align-items:center;padding:64px 0 96px;}
-.hero-copy{grid-area:copy;align-self:end;}
-.hero-actions{grid-area:actions;align-self:start;}
-.stage-card{grid-area:stage;width:100%;max-width:520px;margin-inline:auto;}
-.hero-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
-.hero .eyebrow{color:#5CC2F5;}
-.hero .eyebrow::before{background:var(--yellow);box-shadow:0 0 10px rgba(255,214,0,.75);}
-.live-chip{display:inline-flex;align-items:center;gap:6px;background:rgba(34,212,106,.1);border:1px solid rgba(34,212,106,.28);border-radius:var(--r-pill);padding:5px 11px;font-size:10.5px;font-weight:700;color:var(--green-live);letter-spacing:.07em;text-transform:uppercase;}
-.live-dot{width:6px;height:6px;border-radius:50%;background:var(--green-live);animation:blink 1.5s ease-in-out infinite;}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
-.hero h1{font-family:var(--font-serif);font-weight:400;font-size:clamp(38px,5.6vw,60px);line-height:1.04;letter-spacing:-.02em;margin-top:16px;color:#fff;text-shadow:0 2px 30px rgba(0,153,230,.24);}
-.hero h1 em{font-style:italic;color:var(--yellow);text-shadow:0 0 34px rgba(255,214,0,.5);}
-.hero-sub{font-size:clamp(15.5px,1.7vw,18.5px);color:rgba(255,255,255,.78);max-width:52ch;margin-top:20px;}
-.hero-sub b{color:#fff;font-weight:700;}
+/* ================= NAV ================= */
+.nav{position:sticky;top:0;z-index:60;background:rgba(3,28,49,.86);backdrop-filter:saturate(160%) blur(16px);-webkit-backdrop-filter:saturate(160%) blur(16px);border-bottom:1px solid var(--glass-border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-mark{width:36px;height:36px;border-radius:10px;background:linear-gradient(160deg,var(--sky),var(--deep));display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 4px 12px rgba(0,153,230,.3)}
+.brand-mark svg{width:22px;height:22px}
+.brand-word{font-family:var(--font-serif);font-size:23px;line-height:1;color:#fff;letter-spacing:-.2px}
+.brand-word em{font-style:normal;color:var(--yellow)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a{color:var(--soft);font-weight:500;font-size:14.5px}
+.nav-links a:hover{color:#fff}
+.lang-chip{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--soft);background:rgba(255,255,255,.08);border:1px solid var(--glass-border);padding:8px 13px;border-radius:999px}
 
-/* hero stats row */
-.hero-stats{display:flex;align-items:center;gap:22px;margin-top:28px;}
-.hstat{text-align:left;}
-.hstat-num{font-size:23px;font-weight:800;color:#fff;line-height:1;letter-spacing:-.02em;}
-.hstat-num span{color:var(--blue);}
-.hstat-label{font-size:10px;font-weight:600;color:rgba(255,255,255,.6);margin-top:4px;text-transform:uppercase;letter-spacing:.06em;}
-.hstat-div{width:1px;height:32px;background:linear-gradient(180deg,transparent,rgba(0,153,230,.4),transparent);}
+/* ================= HERO ================= */
+.hero{padding:72px 0 92px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:16px 48px;align-items:center}
+.hero h1{font-family:var(--font-serif);font-weight:400;font-size:clamp(38px,5.6vw,60px);line-height:1.05;letter-spacing:-.02em;margin-top:18px;color:#fff;text-shadow:0 2px 30px rgba(0,153,230,.24)}
+.hero h1 em{font-style:italic;color:var(--yellow);text-shadow:0 0 34px rgba(255,214,0,.5)}
+.hero-sub{font-size:clamp(15.5px,1.7vw,18.5px);color:var(--muted);max-width:52ch;margin-top:20px}
+.hero-sub b{color:#fff;font-weight:600}
+.hero-stats{display:flex;align-items:center;gap:22px;margin-top:28px}
+.hstat-num{font-family:var(--font-serif);font-size:26px;color:#fff;line-height:1}
+.hstat-label{font-size:10.5px;font-weight:600;color:var(--muted);margin-top:5px;text-transform:uppercase;letter-spacing:.07em}
+.hstat-div{width:1px;height:34px;background:linear-gradient(180deg,transparent,var(--glass-border),transparent)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px;align-items:center}
+.hero-then{margin-top:20px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.stores{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
+.store{display:inline-flex;align-items:center;gap:11px;background:#fff;color:var(--ink);padding:11px 17px;border-radius:14px;transition:transform .12s;box-shadow:0 12px 30px rgba(0,0,0,.36)}
+.store:hover{transform:translateY(-1px)}
+.store svg{width:24px;height:24px;flex:none}
+.store small{display:block;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#3E5673}
+.store strong{display:block;font-size:15px;font-weight:700;line-height:1.15}
+.hero-note{margin-top:18px;font-size:13.5px;color:var(--muted);display:flex;align-items:center;gap:8px}
+.hero-note b{color:#fff}
+.hero-scene{position:relative;width:100%;max-width:520px;margin-inline:auto;border-radius:20px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.5),0 0 0 1px var(--glass-border),inset 0 0 60px rgba(0,153,230,.08)}
+.hero-scene>svg{width:100%;height:auto;display:block}
+.scene-caption{text-align:center;margin:14px auto 0}
+.scene-caption span{display:inline-block;background:rgba(7,17,28,.9);border:1px solid var(--glass-border);color:#dcecf9;font-weight:600;font-size:12.5px;padding:8px 16px;border-radius:999px;backdrop-filter:blur(6px);box-shadow:0 8px 22px rgba(0,0,0,.4)}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.45}}
+.scene-caption span{animation:blink 1.8s ease-in-out infinite}
 
-/* hero actions */
-.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;align-items:center;}
-.hero .btn--ghost{background:rgba(255,255,255,.07);color:#fff;border:1.5px solid rgba(255,255,255,.24);}
-.hero .btn--ghost:hover{background:rgba(255,255,255,.13);border-color:rgba(92,194,245,.6);}
-.hero-then{margin-top:22px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);}
-.stores{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px;}
-.store{display:inline-flex;align-items:center;gap:11px;background:#fff;border:1px solid rgba(255,255,255,.14);color:var(--text);padding:11px 17px;border-radius:14px;transition:transform .12s,box-shadow .2s;box-shadow:0 12px 30px rgba(0,0,0,.36);}
-.store:hover{transform:translateY(-1px);box-shadow:0 16px 38px rgba(0,0,0,.46);}
-.store svg{width:24px;height:24px;flex:none;}
-.store small{display:block;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
-.store strong{display:block;font-size:15px;font-weight:700;line-height:1.15;}
-.hero-note{margin-top:18px;font-size:13.5px;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:8px;}
-.hero-note b{color:#fff;}
+/* strip */
+.strip{border-top:1px solid var(--glass-border);border-bottom:1px solid var(--glass-border);background:rgba(0,153,230,.06)}
+.strip-inner{display:flex;flex-wrap:wrap;gap:14px 42px;justify-content:center;padding:20px 0;font-size:13.5px;font-weight:600;color:var(--soft)}
+.strip-inner span{display:inline-flex;align-items:center;gap:9px}
+.strip-inner svg{width:17px;height:17px;color:var(--sky);flex:none}
 
-/* ── hero carousel scene ── */
-.hero-scene{position:relative;width:100%;border-radius:20px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.5), 0 0 0 1px rgba(0,153,230,.18), inset 0 0 60px rgba(0,153,230,.08);}
-.hero-scene>svg{width:100%;height:auto;display:block;}
-.scene-eta{position:absolute;right:12px;top:12px;z-index:4;background:linear-gradient(135deg,var(--blue),var(--deep));color:#fff;border-radius:13px;padding:9px 13px;box-shadow:0 14px 30px rgba(0,107,181,.4);text-align:left;}
-.scene-eta small{display:block;font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.85;}
-.scene-eta b{font-size:20px;font-variant-numeric:tabular-nums;line-height:1.1;}
-.scene-ticker{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);z-index:4;background:rgba(7,17,28,.9);border:1px solid rgba(0,153,230,.4);color:#dcecf9;font-weight:700;font-size:12px;padding:8px 15px;border-radius:var(--r-pill);white-space:nowrap;max-width:90%;overflow:hidden;text-overflow:ellipsis;opacity:1;transition:opacity .45s;backdrop-filter:blur(6px);box-shadow:0 8px 22px rgba(0,0,0,.4);}
-.scene-ticker.fade{opacity:0;}
+/* ================= THE MOMENT ================= */
+.moment-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.pain{padding:30px}
+.pain h3{font-family:var(--font-serif);font-weight:400;font-size:22px;color:#fff;margin-bottom:16px}
+.pain li{list-style:none;display:flex;gap:13px;align-items:flex-start;font-size:15px;color:var(--soft);margin-top:14px}
+.pain .x{flex:none;width:24px;height:24px;border-radius:50%;background:rgba(229,72,77,.18);border:1px solid rgba(229,72,77,.5);color:#ff8a8d;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.pain .x svg{width:11px;height:11px}
+.answer{margin-top:26px;padding:18px 20px;border-radius:var(--radius-sm);background:rgba(255,214,0,.07);border:1px solid rgba(255,214,0,.35);display:flex;gap:13px;align-items:flex-start}
+.answer .dot{flex:none;width:10px;height:10px;border-radius:50%;background:var(--yellow);margin-top:6px;box-shadow:0 0 0 0 rgba(255,214,0,.5);animation:pingDot 1.6s ease-out infinite}
+@keyframes pingDot{0%{box-shadow:0 0 0 0 rgba(255,214,0,.5)}70%{box-shadow:0 0 0 9px rgba(255,214,0,0)}100%{box-shadow:0 0 0 0 rgba(255,214,0,0)}}
+.answer p{font-size:15px;color:var(--soft)}
+.answer b{color:#fff}
 
-/* hero → body curve — lands on the yellow strip */
-.hero-curve{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:42px;display:block;z-index:3;}
+/* ================= THE PING (steps) ================= */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.step{padding:26px 22px;position:relative;transition:transform .15s}
+.step:hover{transform:translateY(-3px)}
+.step-ic{width:48px;height:48px;border-radius:13px;background:linear-gradient(160deg,rgba(0,153,230,.42),rgba(0,107,181,.18));color:var(--sky);display:flex;align-items:center;justify-content:center;margin:16px 0 16px}
+.step-ic svg{width:24px;height:24px}
+.step h4{font-family:var(--font-serif);font-weight:400;font-size:21px;color:#fff;margin-bottom:8px}
+.step p{font-size:14px;color:var(--muted);line-height:1.55}
+.step.is-key{border-color:rgba(255,214,0,.5);box-shadow:0 16px 44px rgba(0,0,0,.45),0 0 0 1px rgba(255,214,0,.25)}
+.step.is-key .step-ic{background:var(--yellow);color:var(--ink);box-shadow:0 6px 18px rgba(255,214,0,.3)}
 
-/* ════════ TRUST STRIP — full yellow band ════════ */
-.strip{background:linear-gradient(180deg,var(--yellow-hi),var(--yellow));color:var(--ink);border-bottom:1px solid var(--yellow-deep);}
-.strip-inner{display:flex;flex-wrap:wrap;gap:14px 40px;justify-content:center;padding:20px 0;font-size:13.5px;font-weight:700;}
-.strip-inner span{display:inline-flex;align-items:center;gap:9px;}
-.strip-inner svg{width:17px;height:17px;color:var(--deep);}
+/* ================= CREW ================= */
+.crew-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.crew-card{padding:24px;position:relative;transition:transform .15s,border-color .2s}
+.crew-card:hover{transform:translateY(-3px);border-color:rgba(255,214,0,.5)}
+.crew-card .badge-no{position:absolute;top:18px;right:18px}
+.crew-ic{width:46px;height:46px;border-radius:12px;background:linear-gradient(160deg,rgba(0,153,230,.42),rgba(0,107,181,.18));display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.crew-ic svg{width:23px;height:23px}
+.crew-card h4{font-family:var(--font-serif);font-weight:400;font-size:21px;color:#fff;margin-bottom:6px}
+.crew-card h4 em{font-style:italic;color:var(--sky)}
+.crew-card p{font-size:14px;color:var(--muted);line-height:1.55}
+.crew-card.is-lang{background:linear-gradient(150deg,rgba(0,153,230,.32),rgba(0,107,181,.14));display:flex;flex-direction:column;justify-content:center}
+.crew-card.is-lang h4 em{color:var(--yellow)}
+.crew-foot{margin-top:36px;padding:30px 34px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.crew-foot h3{font-family:var(--font-serif);font-weight:400;font-size:24px;color:#fff}
+.crew-foot p{color:var(--muted);font-size:14.5px;margin-top:4px}
 
-/* ════════ PROBLEM — blue tint field, navy pain card ════════ */
-.problem{background:linear-gradient(180deg,var(--body),var(--body-2));}
-.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
-.problem-card{background:linear-gradient(160deg,#0A3A63,var(--ink));border-radius:var(--r-xl);padding:34px;border:1px solid var(--blue);box-shadow:0 18px 44px rgba(5,39,68,.4);}
-.problem-card h3{font-family:var(--font-serif);font-weight:400;font-size:22px;color:#fff;margin-bottom:8px;}
-.problem-list{margin-top:20px;display:grid;gap:14px;}
-.problem-list li{list-style:none;display:flex;gap:13px;align-items:flex-start;font-size:15.5px;color:rgba(255,255,255,.88);}
-.problem-list .x{flex:none;width:24px;height:24px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;margin-top:1px;box-shadow:0 3px 10px rgba(220,38,38,.5);}
-.problem-list .x svg{width:12px;height:12px;}
-.answer{margin-top:24px;padding:18px 20px;border-radius:var(--r-md);background:#fff;border:1px solid var(--line);border-left:5px solid var(--yellow);display:flex;gap:13px;align-items:flex-start;box-shadow:var(--shadow-soft);}
-.answer .c{flex:none;width:24px;height:24px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;margin-top:1px;box-shadow:0 3px 10px rgba(22,163,74,.4);}
-.answer .c svg{width:13px;height:13px;}
-.answer b{color:var(--text);}
+/* ================= LANGUAGES ================= */
+.lang-cloud{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.lang-pill{background:rgba(255,255,255,.07);border:1px solid var(--glass-border);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:500;color:var(--soft)}
+.lang-pill.is-rtl{direction:rtl}
 
-/* ════════ HOW IT WORKS — saturated tint field, yellow number badges ════════ */
-.how{background:linear-gradient(180deg,var(--body-2),var(--sky));}
-.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:42px;}
-.step{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:22px 18px;position:relative;overflow:hidden;transition:transform .15s,box-shadow .2s;box-shadow:0 6px 18px rgba(5,39,68,.14);}
-.step:hover{transform:translateY(-3px);box-shadow:var(--shadow-soft);}
-.step-num{display:inline-block;font-family:var(--font-serif);font-size:14px;color:var(--ink);background:var(--yellow);padding:2px 11px;border-radius:var(--r-pill);box-shadow:0 2px 8px rgba(255,214,0,.45);}
-.step-ic{width:46px;height:46px;border-radius:13px;background:linear-gradient(155deg,var(--sky),var(--body-2));color:var(--deep);display:flex;align-items:center;justify-content:center;margin:12px 0 14px;box-shadow:inset 0 1px 0 #fff, 0 4px 12px rgba(0,107,181,.2);}
-.step-ic svg{width:24px;height:24px;}
-.step h4{font-size:16px;font-weight:700;margin-bottom:6px;}
-.step p{font-size:13.5px;color:var(--muted);line-height:1.5;}
-.step.is-key{background:linear-gradient(160deg,var(--blue),var(--deep));border:1.5px solid var(--deep);box-shadow:0 14px 36px rgba(0,107,181,.45);}
-.step.is-key .step-num{background:var(--yellow);color:var(--ink);}
-.step.is-key .step-ic{background:#fff;color:var(--deep);}
-.step.is-key h4{color:#fff;}
-.step.is-key p{color:#fff;}
+/* ================= PRICING ================= */
+.price-card{max-width:560px;margin:38px auto 0;border-top:4px solid var(--yellow);padding:40px 38px;text-align:center}
+.price-tag{font-family:var(--font-serif);font-size:56px;color:#fff;line-height:1}
+.price-tag small{font-size:18px;color:var(--muted)}
+.price-card .sub{color:var(--muted);margin:10px 0 24px;font-size:15px}
+.price-incl{display:grid;gap:12px;text-align:left;max-width:360px;margin:0 auto 28px}
+.price-incl li{list-style:none;display:flex;gap:11px;font-size:14.5px;color:var(--soft)}
+.price-incl svg{width:20px;height:20px;color:var(--sky);flex:none}
+.price-bundles{font-size:12.5px;color:var(--muted);margin-top:14px}
 
-/* ════════ CREW — full saturated blue field, white cards ════════ */
-.crew{background:linear-gradient(180deg,var(--deep) 0%, var(--blue) 100%);}
-.crew .eyebrow{color:#fff;}
-.crew .h2{color:#fff;}
-.crew .h2 em{color:var(--yellow);}
-.crew .lead{color:rgba(255,255,255,.92);}
-.crew-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;}
-.crew-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px;}
-.crew-card{background:#fff;border:1px solid rgba(255,255,255,.5);border-radius:var(--r-lg);padding:24px;transition:transform .15s,box-shadow .2s,border-color .2s;box-shadow:0 14px 36px rgba(3,25,43,.35);}
-.crew-card:hover{transform:translateY(-3px);box-shadow:0 22px 54px rgba(3,25,43,.45);border-color:var(--yellow);}
-.crew-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
-.crew-ic{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,var(--blue),var(--deep));color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,107,181,.34), inset 0 1px 0 rgba(255,255,255,.25);}
-.crew-ic svg{width:25px;height:25px;}
-.crew-no{font-family:var(--font-serif);font-size:16px;color:var(--ink);background:var(--yellow);padding:2px 12px;border-radius:var(--r-pill);box-shadow:0 2px 8px rgba(255,214,0,.4);}
-.crew-card h4{font-family:var(--font-serif);font-weight:400;font-size:21px;color:var(--text);margin-bottom:6px;}
-.crew-card h4 em{font-style:italic;color:var(--deep);}
-.crew-card p{font-size:14px;color:var(--muted);line-height:1.55;}
-.crew-foot{margin-top:34px;background:#fff;border:1px solid rgba(255,255,255,.5);border-radius:var(--r-xl);padding:30px 34px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;color:var(--text);box-shadow:0 18px 44px rgba(3,25,43,.4);}
-.crew-foot h3{font-family:var(--font-serif);font-weight:400;font-size:24px;color:var(--ink);}
-.crew-foot p{color:var(--muted);font-size:14.5px;margin-top:4px;}
+/* ================= DOWNLOAD ================= */
+.dl-inner{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}
+.dl-actions{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px}
+.dl-phone{justify-self:center;width:250px;height:500px;border-radius:40px;background:#07182c;border:9px solid #07182c;box-shadow:0 36px 80px rgba(2,10,18,.6),0 0 0 1px var(--glass-border);position:relative;overflow:hidden}
+.dl-phone .scr{position:absolute;inset:0;background:linear-gradient(160deg,#031C31 0%,#084173 60%,#021320 100%);padding:30px 16px;display:flex;flex-direction:column;gap:12px}
+.dl-notch{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:90px;height:22px;border-radius:12px;background:#07182c;z-index:2}
+.mini-brand{display:flex;align-items:center;gap:8px;margin-top:14px}
+.mini-brand .brand-word{font-size:18px}
+.mini-card{background:var(--card);border:1px solid var(--glass-border);border-radius:16px;padding:14px}
+.mini-card .mc-eta{font-family:var(--font-serif);font-size:28px;color:var(--yellow);line-height:1}
+.mini-card .mc-lab{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:6px}
+.mini-row{display:flex;align-items:center;gap:10px;background:var(--glass);border:1px solid var(--glass-border);border-radius:12px;padding:10px 12px}
+.mini-row .md{width:9px;height:9px;border-radius:50%;background:var(--sky);flex:none}
+.mini-row span{font-size:12px;color:var(--soft)}
 
-/* ════════ COMPARE — light relief section, blue table head ════════ */
-.compare{background:linear-gradient(180deg,#FFFFFF,var(--body));color:var(--text);}
-.compare .h2{color:var(--ink);}
-.compare .h2 em{color:var(--deep);}
-.table{margin-top:40px;background:#fff;border:1.5px solid var(--line);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-card);}
-.trow{display:grid;grid-template-columns:1.6fr 1fr 1fr;align-items:center;}
-.trow+.trow{border-top:1px solid var(--line);}
-.trow>div{padding:17px 20px;font-size:14.5px;}
-.thead{background:linear-gradient(135deg,var(--blue),var(--deep));color:#fff;font-weight:700;font-size:13px;letter-spacing:.04em;}
-.thead>div{color:#fff;}
-.thead .them{color:rgba(255,255,255,.85);}
-.thead .tus{color:#fff;}
-.them{color:var(--muted);text-align:center;}
-.tus{color:var(--deep);font-weight:700;text-align:center;display:flex;align-items:center;justify-content:center;gap:7px;}
-.tfeat{color:var(--text-soft);}
-.tno{color:#6B87A3;text-align:center;}
+/* ================= FOOTER ================= */
+.foot{background:rgba(2,19,32,.85);color:var(--muted);padding:54px 0 30px;border-top:2px solid var(--yellow)}
+.foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.foot-col h5{color:var(--sky);font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;font-weight:600}
+.foot-col a{display:block;color:var(--muted);font-size:14px;margin-bottom:9px}
+.foot-col a:hover{color:var(--yellow)}
+.foot-cols{display:flex;gap:60px;flex-wrap:wrap}
+.foot-bottom{margin-top:40px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:rgba(255,255,255,.5);align-items:center}
 
-/* ════════ LANGUAGES — tinted field ════════ */
-.langs{background:linear-gradient(180deg,var(--body),var(--body-2));}
-.lang-cloud{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px;}
-.lang-pill{background:#fff;border:1px solid var(--line);border-radius:var(--r-pill);padding:9px 16px;font-size:14px;font-weight:600;color:var(--text-soft);box-shadow:0 3px 10px rgba(5,39,68,.12);}
-.lang-pill.is-rtl{direction:rtl;}
-
-/* ════════ DOWNLOAD — full navy→deep blue field ════════ */
-.download{background:linear-gradient(160deg,var(--ink),var(--deep));color:#fff;}
-.download .eyebrow{color:#fff;}
-.dl-inner{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center;}
-.dl-inner .h2{color:#fff;}
-.dl-inner .h2 em{color:var(--yellow);}
-.dl-inner .lead{color:rgba(255,255,255,.88);}
-.dl-actions{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px;}
-.dl-actions .store{background:#fff;border:0;box-shadow:0 14px 34px rgba(0,0,0,.4);}
-.dl-phone{justify-self:center;width:240px;height:480px;border-radius:38px;background:#07182c;border:9px solid #07182c;box-shadow:0 36px 80px rgba(2,10,18,.6), 0 0 0 1px rgba(0,153,230,.35);position:relative;overflow:hidden;}
-.dl-phone .scr{position:absolute;inset:0;background:linear-gradient(180deg,#F4FAFE,#E7F2FC);padding:26px 18px;display:flex;flex-direction:column;}
-.dl-notch{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:90px;height:22px;border-radius:12px;background:#07182c;z-index:2;}
-.mini-brand{display:flex;align-items:center;gap:8px;margin-top:14px;}
-.mini-brand .brand-word{color:var(--ink);font-size:18px;}
-.mini-brand .brand-word em{color:var(--yellow-deep);}
-.mini-card{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:var(--shadow-soft);}
-.mini-card .mc-eta{font-family:var(--font-serif);font-size:30px;color:var(--deep);line-height:1;}
-.mini-card .mc-lab{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:6px;}
-.mini-row{display:flex;align-items:center;gap:10px;margin-top:12px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;}
-.mini-row .md{width:9px;height:9px;border-radius:50%;background:var(--green);flex:none;}
-.mini-row span{font-size:12px;color:var(--text-soft);}
-
-/* ════════ PRICING — tint field, yellow-crowned card ════════ */
-.price{background:linear-gradient(180deg,var(--body-2),var(--sky));}
-.price-card{max-width:560px;margin:34px auto 0;background:#fff;border:2px solid var(--blue);border-top:6px solid var(--yellow);border-radius:var(--r-xl);padding:38px;text-align:center;box-shadow:0 24px 60px rgba(5,39,68,.3);}
-.price-tag{font-family:var(--font-serif);font-size:54px;color:var(--ink);line-height:1;}
-.price-tag small{font-size:18px;color:var(--muted);}
-.price-card .sub{color:var(--muted);margin:8px 0 22px;font-size:15px;}
-.price-incl{display:grid;gap:11px;text-align:left;max-width:360px;margin:0 auto 26px;}
-.price-incl li{list-style:none;display:flex;gap:11px;font-size:14.5px;color:var(--text-soft);}
-.price-incl svg{width:20px;height:20px;color:var(--green);flex:none;}
-
-/* ════════ FOOTER — full navy, yellow keyline ════════ */
-.foot{background:var(--ink);color:rgba(255,255,255,.72);padding:54px 0 30px;border-top:4px solid var(--yellow);}
-.foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;}
-.foot .brand-word{color:#fff;}
-.foot .brand-word em{color:var(--yellow);}
-.foot-col h5{color:#5CC2F5;font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;}
-.foot-col a{display:block;color:rgba(255,255,255,.72);font-size:14px;margin-bottom:9px;}
-.foot-col a:hover{color:var(--yellow);}
-.foot-cols{display:flex;gap:60px;flex-wrap:wrap;}
-.foot-bottom{margin-top:40px;padding-top:22px;border-top:1px solid rgba(255,255,255,.16);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:rgba(255,255,255,.55);align-items:center;}
-
-[data-placeholder]{position:relative;}
-
-/* ════════ CHECKOUT MODAL ════════ */
-.co{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(4,13,22,.66);backdrop-filter:blur(7px);}
-.co.on{display:flex;animation:co-fade .2s ease;}
+/* ================= CHECKOUT MODAL ================= */
+.co{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(4,30,51,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.co.on{display:flex;animation:co-fade .2s ease}
 @keyframes co-fade{from{opacity:0}to{opacity:1}}
-.co-card{width:100%;max-width:460px;background:var(--paper);border-radius:var(--r-xl);box-shadow:0 40px 100px rgba(4,13,22,.5);overflow:hidden;animation:co-rise .28s cubic-bezier(.2,.8,.2,1);max-height:94vh;display:flex;flex-direction:column;}
+.co-card{width:100%;max-width:460px;background:linear-gradient(180deg,#07406E 0%,#031C31 100%);border:1px solid var(--glass-border);border-radius:24px;box-shadow:0 40px 100px rgba(2,10,18,.6);overflow:hidden;animation:co-rise .28s cubic-bezier(.2,.8,.2,1);max-height:94vh;display:flex;flex-direction:column}
 @keyframes co-rise{from{opacity:0;transform:translateY(24px) scale(.97)}to{opacity:1;transform:none}}
-.co-head{display:flex;align-items:center;gap:12px;padding:20px 22px;border-bottom:1px solid var(--line);}
-.co-logo{width:38px;height:38px;border-radius:10px;background:linear-gradient(150deg,var(--blue),var(--deep));display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 3px 12px rgba(0,107,181,.5);}
-.co-logo svg{width:23px;height:23px;}
-.co-titles{flex:1;min-width:0;}
-.co-title{font-family:var(--font-serif);font-weight:400;font-size:19px;color:var(--text);line-height:1.1;}
-.co-secure{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--green);margin-top:3px;}
-.co-secure svg{width:12px;height:12px;}
-.co-close{width:34px;height:34px;border-radius:50%;background:var(--body-2);color:var(--muted);display:flex;align-items:center;justify-content:center;flex:none;transition:background .15s,transform .15s;}
-.co-close:hover{background:var(--ink);color:#fff;transform:rotate(90deg);}
-.co-body{padding:22px;overflow-y:auto;}
-.co-h{font-size:16px;font-weight:700;color:var(--text);margin-bottom:4px;}
-.co-p{font-size:13.5px;color:var(--muted);margin-bottom:18px;line-height:1.5;}
-.co-qty{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:20px;}
-.co-pill{flex:1;min-width:56px;padding:13px 0;border-radius:var(--r-md);border:1.5px solid var(--line);background:var(--paper);font-weight:700;font-size:16px;color:var(--text-soft);transition:all .14s;}
-.co-pill:hover{border-color:var(--blue);}
-.co-pill.on{border-color:var(--deep);background:linear-gradient(180deg,var(--sky),var(--body-2));color:var(--deep);box-shadow:0 0 0 3px rgba(0,153,230,.25);}
-.co-sum{background:linear-gradient(180deg,var(--body-2),var(--sky));border:1px solid var(--line);border-radius:var(--r-md);padding:16px 18px;margin-bottom:16px;}
-.co-line{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;padding:5px 0;}
-.co-line .k{color:var(--text-soft);}
-.co-line .k small{display:block;color:var(--muted);font-size:12px;}
-.co-line .v{font-weight:700;color:var(--text);font-variant-numeric:tabular-nums;}
-.co-line .v.free{color:var(--green);}
-.co-line.total{border-top:1px solid var(--line);margin-top:6px;padding-top:12px;}
-.co-line.total .k{font-weight:700;color:var(--text);}
-.co-line.total .v{font-size:22px;}
-.co-trust{display:flex;flex-wrap:wrap;gap:10px 16px;margin-bottom:18px;}
-.co-trust span{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--text-soft);}
-.co-trust svg{width:14px;height:14px;color:var(--deep);}
-.co-pay{width:100%;display:inline-flex;align-items:center;justify-content:center;gap:9px;background:linear-gradient(180deg,var(--yellow-hi),var(--yellow) 55%,var(--yellow-deep));color:var(--ink);font-weight:800;font-size:16px;padding:16px;border-radius:var(--r-pill);box-shadow:var(--shadow-yellow);transition:background .2s,transform .12s,box-shadow .2s;}
-.co-pay:hover{transform:translateY(-2px);box-shadow:0 7px 0 var(--yellow-shadow),0 20px 46px rgba(255,214,0,.62);}
-.co-pay:active{transform:translateY(2px);box-shadow:0 2px 0 var(--yellow-shadow),0 5px 14px rgba(255,214,0,.32);}
-.co-note{font-size:12px;color:var(--muted);text-align:center;margin-top:12px;line-height:1.5;}
-.co-note b{color:var(--text-soft);}
-.co-app{margin-top:16px;padding-top:16px;border-top:1px solid var(--line);text-align:center;font-size:12.5px;color:var(--muted);}
-.co-app b{color:var(--text-soft);}
+.co-head{display:flex;align-items:center;gap:12px;padding:20px 22px;border-bottom:1px solid var(--glass-border)}
+.co-logo{width:38px;height:38px;border-radius:10px;background:linear-gradient(160deg,var(--sky),var(--deep));display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 4px 12px rgba(0,153,230,.3)}
+.co-logo svg{width:23px;height:23px}
+.co-titles{flex:1;min-width:0}
+.co-title{font-family:var(--font-serif);font-weight:400;font-size:19px;color:#fff;line-height:1.1}
+.co-secure{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--sky);margin-top:3px}
+.co-secure svg{width:12px;height:12px}
+.co-close{width:34px;height:34px;border-radius:9px;background:var(--glass);border:1px solid var(--glass-border);color:var(--muted);display:flex;align-items:center;justify-content:center;flex:none}
+.co-close:active{background:rgba(255,255,255,.16)}
+.co-body{padding:22px;overflow-y:auto}
+.co-h{font-size:16px;font-weight:600;color:#fff;margin-bottom:4px}
+.co-p{font-size:13.5px;color:var(--muted);margin-bottom:18px;line-height:1.5}
+.co-qty{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:20px}
+.co-pill{flex:1;min-width:56px;padding:13px 0;border-radius:var(--radius-sm);border:1px solid var(--glass-border);background:rgba(255,255,255,.05);font-weight:700;font-size:16px;color:var(--soft);transition:all .14s}
+.co-pill.on{border-color:var(--yellow);background:rgba(255,214,0,.1);color:var(--yellow);box-shadow:0 0 0 1px rgba(255,214,0,.35)}
+.co-sum{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:16px 18px;margin-bottom:16px}
+.co-line{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;padding:5px 0}
+.co-line .k{color:var(--soft)}
+.co-line .k small{display:block;color:var(--muted);font-size:12px}
+.co-line .v{font-weight:700;color:#fff;font-variant-numeric:tabular-nums}
+.co-line .v.free{color:var(--sky)}
+.co-line.total{border-top:1px solid var(--glass-border);margin-top:6px;padding-top:12px}
+.co-line.total .k{font-weight:700;color:#fff}
+.co-line.total .v{font-size:22px;font-family:var(--font-serif);font-weight:400}
+.co-trust{display:flex;flex-wrap:wrap;gap:10px 16px;margin-bottom:18px}
+.co-trust span{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--muted)}
+.co-trust svg{width:14px;height:14px;color:var(--sky)}
+.co-pay{width:100%;display:inline-flex;align-items:center;justify-content:center;gap:9px;background:linear-gradient(180deg,rgba(255,255,255,.28),rgba(255,255,255,0) 55%),var(--yellow);color:var(--ink);font-weight:700;font-size:16px;padding:16px;border-radius:var(--radius-sm);box-shadow:0 6px 18px rgba(255,214,0,.22);transition:opacity .15s}
+.co-pay:active{opacity:.82}
+.co-note{font-size:12px;color:var(--muted);text-align:center;margin-top:12px;line-height:1.5}
+.co-note b{color:var(--soft)}
+.co-app{margin-top:16px;padding-top:16px;border-top:1px solid var(--glass-border);text-align:center;font-size:12.5px;color:var(--muted)}
+.co-app b{color:var(--soft)}
+.co-app a{color:var(--yellow)}
 
-/* ════════ LEGAL MODAL ════════ */
-.legal-modal{position:fixed;inset:0;z-index:200;background:rgba(4,13,22,.6);display:none;align-items:center;justify-content:center;padding:18px;}
-.legal-modal.is-open{display:flex;}
-.lm-card{background:#fff;border-radius:18px;max-width:560px;width:100%;max-height:84vh;display:flex;flex-direction:column;box-shadow:0 40px 100px rgba(4,13,22,.5);overflow:hidden;}
-.lm-head{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid var(--line);}
-.lm-head strong{font-size:18px;font-weight:800;color:var(--text);}
-.lm-close{width:34px;height:34px;border-radius:10px;color:var(--muted);background:var(--body-2);display:flex;align-items:center;justify-content:center;}
-.lm-close svg{width:16px;height:16px;}
-.lm-body{overflow-y:auto;padding:20px 22px 26px;color:var(--text-soft);font-size:14.5px;line-height:1.7;}
-.lm-body h4{font-weight:800;font-size:15.5px;color:var(--text);margin:18px 0 8px;}
-.lm-body h4:first-child{margin-top:0;}
-.lm-body p{margin-bottom:12px;}
-.lm-body strong{color:var(--text);}
+/* ================= LEGAL MODAL ================= */
+.legal-modal{position:fixed;inset:0;z-index:200;background:rgba(4,30,51,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:18px}
+.legal-modal.is-open{display:flex}
+.lm-card{background:linear-gradient(180deg,#07406E 0%,#031C31 100%);border:1px solid var(--glass-border);border-radius:24px;max-width:560px;width:100%;max-height:84vh;display:flex;flex-direction:column;box-shadow:0 40px 100px rgba(2,10,18,.6);overflow:hidden}
+.lm-head{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid var(--glass-border)}
+.lm-head strong{font-family:var(--font-serif);font-weight:400;font-size:20px;color:#fff}
+.lm-close{width:34px;height:34px;border-radius:9px;color:var(--muted);background:var(--glass);border:1px solid var(--glass-border);display:flex;align-items:center;justify-content:center}
+.lm-close svg{width:16px;height:16px}
+.lm-body{overflow-y:auto;padding:20px 22px 26px;color:var(--soft);font-size:14px;line-height:1.7}
+.lm-body h4{font-family:var(--font-serif);font-weight:400;font-size:16px;color:#fff;margin:18px 0 8px}
+.lm-body h4:first-child{margin-top:0}
+.lm-body p{margin-bottom:12px}
+.lm-body strong{color:#fff}
 
-/* ════════ RESPONSIVE ════════ */
+/* ================= RESPONSIVE ================= */
 @media(max-width:980px){
-  .hero-grid{grid-template-columns:1fr;grid-template-areas:"copy" "stage" "actions";gap:26px;padding:48px 0 78px;}
-  .stage-card{max-width:460px;order:-1;}
-  .problem-grid,.dl-inner{grid-template-columns:1fr;gap:32px;}
-  .steps{grid-template-columns:repeat(2,1fr);}
-  .crew-grid{grid-template-columns:repeat(2,1fr);}
-  .nav-links{display:none;}
-  .dl-phone{display:none;}
+  .hero-grid{grid-template-columns:1fr;gap:34px}
+  .hero-scene{order:-1}
+  .moment-grid,.dl-inner{grid-template-columns:1fr;gap:32px}
+  .steps{grid-template-columns:1fr}
+  .crew-grid{grid-template-columns:repeat(2,1fr)}
+  .nav-links{display:none}
+  .dl-phone{display:none}
 }
 @media(max-width:560px){
-  .section{padding:60px 0;}
-  .wrap{padding:0 18px;}
-  .steps{grid-template-columns:1fr;}
-  .crew-grid{grid-template-columns:1fr;}
-  .trow{grid-template-columns:1.4fr .8fr .8fr;}
-  .trow>div{padding:14px 12px;font-size:13px;}
-  .hero-cta .btn{flex:1 1 auto;}
-  .hero-stats{gap:14px;}
+  .section{padding:60px 0}
+  .wrap{padding:0 18px}
+  .crew-grid{grid-template-columns:1fr}
+  .hero-cta .btn{flex:1 1 auto}
+  .hero-stats{gap:14px}
 }
 @media(prefers-reduced-motion:reduce){
-  *{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
 </style>
 </head>
 <body>
+<div class="bg" aria-hidden="true"></div>
 
-<!-- ═══════════ NAV ═══════════ -->
+<!-- =========== NAV =========== -->
 <header class="nav">
   <div class="wrap nav-inner">
     <a class="brand" href="#top" aria-label="BagPing home">
@@ -418,44 +303,60 @@ button{font-family:inherit;cursor:pointer;border:0;background:transparent;color:
     </a>
     <nav class="nav-right" aria-label="Primary">
       <div class="nav-links">
-        <a href="#how">How it works</a>
-        <a href="#crew">AI Travel Crew</a>
-        <a href="#compare">Compare</a>
+        <a href="#ping">The ping</a>
+        <a href="#crew">The Crew</a>
+        <a href="#languages">Languages</a>
         <a href="#pricing">Pricing</a>
       </div>
-      <span class="lang" aria-label="Available in 18 languages">
+      <span class="lang-chip" aria-label="Available in 18 languages">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18" stroke="currentColor" stroke-width="1.8"/></svg>
         18 languages
       </span>
-      <button class="btn btn--yellow" data-checkout>Get your tag</button>
+      <button class="btn btn--yellow" data-checkout>Get the tag</button>
     </nav>
   </div>
 </header>
-<!-- ═══════════ HERO ═══════════ -->
+
+<main>
+<!-- =========== HERO =========== -->
 <section class="hero" id="top">
-  <div class="hero-bg" aria-hidden="true"></div>
-  <div class="hero-dots" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero-grid">
-
-      <div class="hero-copy">
-        <div class="hero-top">
-          <span class="eyebrow">BLE bag tracking + AI Travel Crew</span>
-        </div>
+      <div>
+        <span class="eyebrow">BLE tag + AI Travel Crew</span>
         <h1>Your bag hits the belt. <em>You know first.</em></h1>
-        <p class="hero-sub">You're at the carousel with no idea when your bag is coming. <b>BagPing pings the moment it's near</b> — and a five-member AI Travel Crew tracks your flight, guides you on the ground in any airport, drafts your claim, and reads your insurance.</p>
+        <p class="hero-sub">You land tired. The carousel tells you nothing. <b>BagPing does</b> — your phone pings the moment your bag comes within range, before you can see it on the belt. And if the bag truly doesn't come, a five-member AI Travel Crew drafts your claim while you're still standing there.</p>
         <div class="hero-stats">
-          <div class="hstat"><div class="hstat-num">Any</div><div class="hstat-label">Airport</div></div>
+          <div><div class="hstat-num">Any</div><div class="hstat-label">Airport</div></div>
           <div class="hstat-div" aria-hidden="true"></div>
-          <div class="hstat"><div class="hstat-num">18</div><div class="hstat-label">Languages</div></div>
+          <div><div class="hstat-num">18</div><div class="hstat-label">Languages</div></div>
           <div class="hstat-div" aria-hidden="true"></div>
-          <div class="hstat"><div class="hstat-num">5</div><div class="hstat-label">AI crew</div></div>
+          <div><div class="hstat-num">5</div><div class="hstat-label">AI Crew</div></div>
+        </div>
+        <div class="hero-cta">
+          <button class="btn btn--yellow" data-checkout>Get the tag</button>
+          <a class="btn btn--ghost" href="#ping">See the ping</a>
+        </div>
+        <div class="hero-then">Tag from $49.99 &middot; the app is free forever</div>
+        <div class="stores">
+          <a class="store" href="#" data-store="ios" aria-label="Download on the App Store">
+            <svg viewBox="0 0 24 24" fill="#052744" aria-hidden="true"><path d="M16.5 1.6c.1 1-.3 2-1 2.8-.7.8-1.8 1.4-2.8 1.3-.1-1 .4-2 1-2.7.7-.8 1.9-1.4 2.8-1.4zM20 17c-.5 1.2-.8 1.7-1.4 2.7-.9 1.4-2.2 3.1-3.8 3.1-1.4 0-1.8-.9-3.7-.9-1.9 0-2.3.9-3.7.9-1.6 0-2.8-1.5-3.7-2.9C1.3 17 1 13 2.6 10.5c.9-1.4 2.5-2.3 4-2.3 1.5 0 2.4.9 3.7.9 1.2 0 1.9-.9 3.7-.9 1.3 0 2.7.7 3.7 2-3.2 1.8-2.7 6.3.3 6.8z"/></svg>
+            <span><small>Download on the</small><strong>App Store</strong></span>
+          </a>
+          <a class="store" href="#" data-store="android" aria-label="Get it on Google Play">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 2.3 13.4 12 3.6 21.7c-.3-.2-.5-.6-.5-1.1V3.4c0-.5.2-.9.5-1.1z" fill="#0099E6"/><path d="M16.7 8.8 5 2.1c.4-.2.9-.2 1.3.1l11.3 6.5-.9 2z" fill="#006BB5"/><path d="m16.7 15.2.9 2-11.3 6.5c-.4.3-.9.3-1.3.1l11.7-8.6z" fill="#FFD600"/><path d="m20.4 11.1c.7.4.7 1.4 0 1.8l-2.8 1.6-1.8-2.5 1.8-2.5 2.8 1.6z" fill="#052744"/></svg>
+            <span><small>Get it on</small><strong>Google Play</strong></span>
+          </a>
+        </div>
+        <div class="hero-note">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="#FFD600" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>One tag, the whole Crew. <b>No subscription, ever.</b></span>
         </div>
       </div>
 
-      <div class="stage-card">
+      <div>
         <div class="hero-scene">
-          <svg viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="A realistic airport baggage carousel in perspective with varied luggage riding around an oval belt and the yellow BagPing bag pinging; BagPing branding on the hub." preserveAspectRatio="xMidYMid meet"><defs>
+          <svg viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="An airport baggage carousel in perspective with varied luggage riding the belt and the yellow BagPing bag pinging" preserveAspectRatio="xMidYMid meet"><defs>
  <linearGradient id="sceneBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0C1E33"/><stop offset="1" stop-color="#050F1B"/></linearGradient>
  <linearGradient id="beltTop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#33465C"/><stop offset="1" stop-color="#1B2937"/></linearGradient>
  <linearGradient id="beltFace" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#16222F"/><stop offset="1" stop-color="#0A121C"/></linearGradient>
@@ -477,244 +378,189 @@ button{font-family:inherit;cursor:pointer;border:0;background:transparent;color:
  <ellipse cx="260" cy="212" rx="165" ry="62" fill="none" stroke="#43596F" stroke-width="44" stroke-dasharray="4 26" opacity=".5"><animate attributeName="stroke-dashoffset" from="0" to="-120" dur="1.5s" repeatCount="indefinite"/></ellipse>
  <ellipse cx="260" cy="209" rx="116" ry="40" fill="url(#hub)" stroke="#0A121C" stroke-width="2"/>
  <ellipse cx="260" cy="212" rx="214" ry="84" fill="none" stroke="#0A121C" stroke-width="2"/><path id="loop" d="M260,150 A170,62 0 0,1 260,274 A170,62 0 0,1 260,150" fill="none"/><g><g><g transform="translate(3.1,-1.1) rotate(3.9)"><rect x="-14" y="-17" width="28" height="31" rx="5" fill="#B0562F"/><rect x="-14" y="-4" width="28" height="3.4" fill="#00000026"/><path d="M-6.5 -17v-3.4a6.5 6.5 0 0 1 13 0v3.4" fill="none" stroke="#7E3B1F" stroke-width="2.4"/></g><animateTransform attributeName="transform" type="scale" additive="sum" keyTimes="0;0.5;1" values="0.62;1.28;0.62" dur="18s" begin="-0.48s" repeatCount="indefinite"/></g><animateMotion dur="18s" begin="-0.48s" rotate="0" repeatCount="indefinite"><mpath xlink:href="#loop" href="#loop"/></animateMotion></g><g><g><g transform="translate(-3.9,3.3) rotate(-2.4)"><rect x="-14" y="-17" width="28" height="31" rx="4" fill="#3E6E8E"/><line x1="-8" y1="-16" x2="-8" y2="13" stroke="#2A4C63" stroke-width="1.6" opacity=".55"/><line x1="-2.5" y1="-16" x2="-2.5" y2="13" stroke="#2A4C63" stroke-width="1.6" opacity=".55"/><line x1="3" y1="-16" x2="3" y2="13" stroke="#2A4C63" stroke-width="1.6" opacity=".55"/><line x1="8.5" y1="-16" x2="8.5" y2="13" stroke="#2A4C63" stroke-width="1.6" opacity=".55"/><path d="M-6 -17v-3.2a6 6 0 0 1 12 0v3.2" fill="none" stroke="#2A4C63" stroke-width="2.2"/></g><animateTransform attributeName="transform" type="scale" additive="sum" keyTimes="0;0.5;1" values="0.62;1.28;0.62" dur="18s" begin="-1.58s" repeatCount="indefinite"/></g><animateMotion dur="18s" begin="-1.58s" rotate="0" repeatCount="indefinite"><mpath xlink:href="#loop" href="#loop"/></animateMotion></g><g><g><g transform="translate(0.4,-2.2) rotate(0.1)"><rect x="-18" y="-8" width="36" height="22" rx="11" fill="#8A93A0"/><path d="M-9 -8q9 -9 18 0" fill="none" stroke="#5E6671" stroke-width="2.4"/><rect x="-18" y="1" width="36" height="3" fill="#00000022"/></g><animateTransform attributeName="transform" type="scale" additive="sum" keyTimes="0;0.5;1" values="0.62;1.28;0.62" dur="18s" begin="-3.12s" repeatCount="indefinite"/></g><animateMotion dur="18s" begin="-3.12s" rotate="0" repeatCount="indefinite"><mpath xlink:href="#loop" href="#loop"/></animateMotion></g><g><g><g transform="translate(4.6,2.3) rotate(-5.5)"><rect x="-12" y="-18" width="24" height="32" rx="9" fill="#6E7F52"/><rect x="-8" y="-2" width="16" height="13" rx="4" fill="#4C5938" opacity=".55"/><path d="M-9 -14c-4 6 -4 18 0 26M9 -14c4 6 4 18 0 26" fill="none" stroke="#4C5938" stroke-width="2"/></g><animateTransform attributeName="transform" type="scale" additive="sum" keyTimes="0;0.5;1" values="0.62;1.28;0.62" dur="18s" begin="-4.89s" repeatCount="indefinite"/></g><animateMotion dur="18s" begin="-4.89s" rotate="0" repeatCount="indefinite"><mpath xlink:href="#loop" href="#loop"/></animateMotion></g><g><g><g transform="translate(1.7,2.6) rotate(2.4)"><rect x="-17" y="-13" width="34" height="27" rx="8" fill="#C2A36B"/><path d="M-8 -13v-3a8 8 0 0 1 16 0v3" fill="none" stroke="#8E7546" stroke-width="2.2"/><rect x="-17" y="-2" width="34" height="3" fill="#00000022"/></g><animateTransform attributeName="transform" type="scale" additive="sum" keyTimes="0;0.5;1" values="0.62;1.28;0.62" dur="18s" begin="-6.32s" repeatCount="indefinite"/></g><animateMotion dur="18s" begin="-6.32s" rotate="0" repeatCount="indefinite"><mpath xlink:href="#loop" href="#loop"/></animateMotion></g><g><g><g transform="translate(-2.4,-3.1) rotate(1.1)"><rect x="-14" y="-17" width="28" height="31" rx="5" fill="#566275"/><rect x="-14" y="-4" width="28" height="3.4" fill="#00000026"/><path d="M-6.5 -17v-3.4a6.5 6.5 0 0 1 13 0v3.4" fill="none" stroke="#3A4351" stroke-width="2.4"/></g><animateTransform attributeName="transform" type="scale" additive="sum" keyTimes="0;0.5;1" values="0.62;1.28;0.62" dur="18s" begin="-7.59s" repeatCount="indefinite"/></g><animateMotion dur="18s" begin="-7.59s" rotate="0" repeatCount="indefinite"><mpath xlink:href="#loop" href="#loop"/></animateMotion></g><g><g><g transform="translate(0.3,1.8) rotate(0.5)"><rect x="-14" y="-17" width="28" height="31" rx="4" fill="#9C4C56"/><line x1="-8" y1="-16" x2="-8" y2="13" stroke="#6E343B" stroke-width="1.6" opacity=".55"/><line x1="-2.5" y1="-16" x2="-2.5" y2="13" stroke="#6E343B" stroke-width="1.6" opacity=".55"/><line x1="3" y1="-16" x2="3" y2="13" stroke="#6E343B" stroke-width="1.6" opacity=".55"/><line x1="8.5" y1="-16" x2="8.5" y2="13" stroke="#6E343B" stroke-width="1.6" opacity=".55"/><path d="M-6 -17v-3.2a6 6 0 0 1 12 0v3.2" fill="none" stroke="#6E343B" stroke-width="2.2"/></g><animateTransform attributeName="transform" type="scale" additive="sum" keyTimes="0;0.5;1" values="0.62;1.28;0.62" dur="18s" begin="-9.60s" repeatCount="indefinite"/></g><animateMotion dur="18s" begin="-9.60s" rotate="0" repeatCount="indefinite"><mpath xlink:href="#loop" href="#loop"/></animateMotion></g><g><g><g transform="translate(1.5,-3.4) rotate(2.4)"><rect x="-18" y="-8" width="36" height="22" rx="11" fill="#7C8A9C"/><path d="M-9 -8q9 -9 18 0" fill="none" stroke="#556173" stroke-width="2.4"/><rect x="-18" y="1" width="36" height="3" fill="#00000022"/></g><animateTransform attributeName="transform" type="scale" additive="sum" keyTimes="0;0.5;1" values="0.62;1.28;0.62" dur="18s" begin="-10.52s" repeatCount="indefinite"/></g><animateMotion dur="18s" begin="-10.52s" rotate="0" repeatCount="indefinite"><mpath xlink:href="#loop" href="#loop"/></animateMotion></g><g><g><g transform="translate(0.3,0.1) rotate(5.1)"><rect x="-12" y="-18" width="24" height="32" rx="9" fill="#4C7A70"/><rect x="-8" y="-2" width="16" height="13" rx="4" fill="#33564E" opacity=".55"/><path d="M-9 -14c-4 6 -4 18 0 26M9 -14c4 6 4 18 0 26" fill="none" stroke="#33564E" stroke-width="2"/></g><animateTransform attributeName="transform" type="scale" additive="sum" keyTimes="0;0.5;1" values="0.62;1.28;0.62" dur="18s" begin="-12.12s" repeatCount="indefinite"/></g><animateMotion dur="18s" begin="-12.12s" rotate="0" repeatCount="indefinite"><mpath xlink:href="#loop" href="#loop"/></animateMotion></g><g><g><g transform="translate(1.2,-1.8) rotate(-3.7)"><rect x="-17" y="-13" width="34" height="27" rx="8" fill="#8E97A4"/><path d="M-8 -13v-3a8 8 0 0 1 16 0v3" fill="none" stroke="#646C77" stroke-width="2.2"/><rect x="-17" y="-2" width="34" height="3" fill="#00000022"/></g><animateTransform attributeName="transform" type="scale" additive="sum" keyTimes="0;0.5;1" values="0.62;1.28;0.62" dur="18s" begin="-13.86s" repeatCount="indefinite"/></g><animateMotion dur="18s" begin="-13.86s" rotate="0" repeatCount="indefinite"><mpath xlink:href="#loop" href="#loop"/></animateMotion></g><g><g><g transform="translate(-2.6,2.4) rotate(-6.8)"><rect x="-14" y="-17" width="28" height="31" rx="5" fill="#A88D5A"/><rect x="-14" y="-4" width="28" height="3.4" fill="#00000026"/><path d="M-6.5 -17v-3.4a6.5 6.5 0 0 1 13 0v3.4" fill="none" stroke="#79643E" stroke-width="2.4"/></g><animateTransform attributeName="transform" type="scale" additive="sum" keyTimes="0;0.5;1" values="0.62;1.28;0.62" dur="18s" begin="-15.74s" repeatCount="indefinite"/></g><animateMotion dur="18s" begin="-15.74s" rotate="0" repeatCount="indefinite"><mpath xlink:href="#loop" href="#loop"/></animateMotion></g><g><g><g transform="translate(0.4,-1.6) rotate(4.8)"><rect x="-14" y="-17" width="28" height="31" rx="4" fill="#62708A"/><line x1="-8" y1="-16" x2="-8" y2="13" stroke="#454F61" stroke-width="1.6" opacity=".55"/><line x1="-2.5" y1="-16" x2="-2.5" y2="13" stroke="#454F61" stroke-width="1.6" opacity=".55"/><line x1="3" y1="-16" x2="3" y2="13" stroke="#454F61" stroke-width="1.6" opacity=".55"/><line x1="8.5" y1="-16" x2="8.5" y2="13" stroke="#454F61" stroke-width="1.6" opacity=".55"/><path d="M-6 -17v-3.2a6 6 0 0 1 12 0v3.2" fill="none" stroke="#454F61" stroke-width="2.2"/></g><animateTransform attributeName="transform" type="scale" additive="sum" keyTimes="0;0.5;1" values="0.62;1.28;0.62" dur="18s" begin="-16.89s" repeatCount="indefinite"/></g><animateMotion dur="18s" begin="-16.89s" rotate="0" repeatCount="indefinite"><mpath xlink:href="#loop" href="#loop"/></animateMotion></g><g><g><circle cx="0" cy="-2" r="42" fill="url(#pingG)"><animate attributeName="r" values="28;50;28" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".7;0;.7" dur="2s" repeatCount="indefinite"/></circle><circle cx="0" cy="-2" r="22" fill="none" stroke="#FFD600" stroke-width="2"><animate attributeName="r" values="18;38" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".9;0" dur="2s" repeatCount="indefinite"/></circle><rect x="-16" y="-20" width="32" height="37" rx="6" fill="#FFD600"/><rect x="-16" y="-20" width="32" height="37" rx="6" fill="none" stroke="#052744" stroke-width="2"/><path d="M-8 -20v-4a8 8 0 0 1 16 0v4" fill="none" stroke="#052744" stroke-width="2.6"/><rect x="-16" y="-5" width="32" height="3.4" fill="#052744" opacity=".85"/><circle cx="0" cy="5" r="4.6" fill="#052744"/><circle cx="0" cy="5" r="1.9" fill="#FFD600"/><animateTransform attributeName="transform" type="scale" additive="sum" keyTimes="0;0.5;1" values="0.62;1.28;0.62" dur="18s" begin="-9.00s" repeatCount="indefinite"/></g><animateMotion dur="18s" begin="-9.00s" rotate="0" repeatCount="indefinite"><mpath xlink:href="#loop" href="#loop"/></animateMotion></g></g></svg>
-          
-        </div><div class="belt-caption" style="text-align:center;margin:14px auto 2px;"><span style="display:inline-block;background:rgba(7,17,28,.9);border:1px solid rgba(0,153,230,.4);color:#dcecf9;font-weight:700;font-size:12px;padding:8px 15px;border-radius:999px;animation:blink 1.6s ease-in-out infinite;backdrop-filter:blur(6px);box-shadow:0 8px 22px rgba(0,0,0,.4);">BagPing pings the moment your bag reaches the belt</span></div>
+        </div>
+        <div class="scene-caption"><span>The yellow one is yours. Your phone already knows.</span></div>
       </div>
-
-      <div class="hero-actions">
-        <div class="hero-cta">
-          <button class="btn btn--yellow" data-checkout>Get your tag</button>
-          <a class="btn btn--ghost" href="#how">See how it works</a>
-        </div>
-        <div class="hero-then">Tag from $49.99 · then the app is free</div>
-        <div class="stores">
-          <a class="store" href="#" data-store="ios" aria-label="Download on the App Store">
-            <svg viewBox="0 0 24 24" fill="#052744" aria-hidden="true"><path d="M16.5 1.6c.1 1-.3 2-1 2.8-.7.8-1.8 1.4-2.8 1.3-.1-1 .4-2 1-2.7.7-.8 1.9-1.4 2.8-1.4zM20 17c-.5 1.2-.8 1.7-1.4 2.7-.9 1.4-2.2 3.1-3.8 3.1-1.4 0-1.8-.9-3.7-.9-1.9 0-2.3.9-3.7.9-1.6 0-2.8-1.5-3.7-2.9C1.3 17 1 13 2.6 10.5c.9-1.4 2.5-2.3 4-2.3 1.5 0 2.4.9 3.7.9 1.2 0 1.9-.9 3.7-.9 1.3 0 2.7.7 3.7 2-3.2 1.8-2.7 6.3.3 6.8z"/></svg>
-            <span><small>Download on the</small><strong>App Store</strong></span>
-          </a>
-          <a class="store" href="#" data-store="android" aria-label="Get it on Google Play">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 2.3 13.4 12 3.6 21.7c-.3-.2-.5-.6-.5-1.1V3.4c0-.5.2-.9.5-1.1z" fill="#0099E6"/><path d="M16.7 8.8 5 2.1c.4-.2.9-.2 1.3.1l11.3 6.5-.9 2z" fill="#006BB5"/><path d="m16.7 15.2.9 2-11.3 6.5c-.4.3-.9.3-1.3.1l11.7-8.6z" fill="#FFD600"/><path d="m20.4 11.1c.7.4.7 1.4 0 1.8l-2.8 1.6-1.8-2.5 1.8-2.5 2.8 1.6z" fill="#052744"/></svg>
-            <span><small>Get it on</small><strong>Google Play</strong></span>
-          </a>
-        </div>
-        <div class="hero-note">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="#22D46A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span>One tag, the whole crew. <b>No subscription to use the app.</b></span>
-        </div>
-      </div>
-
     </div>
   </div>
-  <svg class="hero-curve" viewBox="0 0 1440 42" preserveAspectRatio="none" aria-hidden="true"><path d="M0 42 C 360 2 1080 2 1440 42 L1440 42 L0 42 Z" fill="#FFE24D"/></svg>
 </section>
 
-<!-- ═══════════ TRUST STRIP ═══════════ -->
+<!-- =========== STRIP =========== -->
 <section class="strip" aria-label="Highlights">
   <div class="wrap strip-inner">
     <span><svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Works in any airport worldwide</span>
-    <span><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Pings when your bag reaches the belt</span>
+    <span><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Pings before you see the bag</span>
     <span><svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>18 languages built in</span>
     <span><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="9" width="16" height="11" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 9V6a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.8"/></svg>Private by design</span>
   </div>
 </section>
 
-<!-- ═══════════ PROBLEM ═══════════ -->
-<section class="section problem" id="problem">
-  <div class="wrap problem-grid">
+<!-- =========== THE MOMENT =========== -->
+<section class="section" id="moment">
+  <div class="wrap moment-grid">
     <div>
-      <span class="eyebrow">The carousel problem</span>
-      <h2 class="h2">The worst moment of travel is an <em>empty belt.</em></h2>
-      <p class="lead">You land tired. You stand at the carousel. Bag after bag goes by — none of them yours — and the quiet dread sets in. Is it lost? Is it coming? Nobody tells you anything.</p>
+      <span class="eyebrow">The longest minutes in travel</span>
+      <h2 class="h2">Every bag but <em>yours.</em></h2>
+      <p class="lead">Nine hours in the air. You're at carousel 7, watching strangers get their lives back one suitcase at a time. The belt keeps turning. Nobody tells you anything. That is the exact moment BagPing exists for.</p>
       <div class="answer">
-        <span class="c" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <p><b>BagPing answers the only question that matters:</b> where is my bag, and when does it reach me. The moment your tagged bag comes within range of your phone, you get pinged — before you even see it on the belt.</p>
+        <span class="dot" aria-hidden="true"></span>
+        <p><b>BagPing answers the only question that matters:</b> where is my bag, and when does it reach me. The moment your tagged bag comes within range of your phone — ping. You know before the belt shows you.</p>
       </div>
     </div>
-    <div class="problem-card">
-      <h3>Without BagPing</h3>
-      <ul class="problem-list">
-        <li><span class="x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M18 6 6 18M6 6l12 12" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg></span><span>Standing at the belt with zero information, watching strangers' bags go by.</span></li>
-        <li><span class="x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M18 6 6 18M6 6l12 12" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg></span><span>No idea if your bag made the flight, missed the connection, or is already lost.</span></li>
-        <li><span class="x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M18 6 6 18M6 6l12 12" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg></span><span>Lost in a foreign terminal with signs you can't read and no one to ask.</span></li>
-        <li><span class="x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M18 6 6 18M6 6l12 12" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg></span><span>Facing a confusing claim form and an insurance policy written to defeat you.</span></li>
+    <div class="glass pain">
+      <h3>The belt gives you nothing</h3>
+      <ul>
+        <li><span class="x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M18 6 6 18M6 6l12 12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span><span>Zero information. Just other people's luggage, on repeat.</span></li>
+        <li><span class="x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M18 6 6 18M6 6l12 12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span><span>No way to know if your bag made the connection — or is on another continent.</span></li>
+        <li><span class="x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M18 6 6 18M6 6l12 12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span><span>A foreign terminal, signs you can't read, and no one to ask.</span></li>
+        <li><span class="x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M18 6 6 18M6 6l12 12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span><span>A claim form built to exhaust you, and a policy written to defeat you.</span></li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ HOW IT WORKS ═══════════ -->
-<section class="section how" id="how">
+<!-- =========== THE PING =========== -->
+<section class="section" id="ping">
   <div class="wrap">
-    <span class="eyebrow">How it works</span>
-    <h2 class="h2">From check-in to carousel, in <em>five steps.</em></h2>
+    <span class="eyebrow">The ping</span>
+    <h2 class="h2">One tag. One ping. <em>Zero hovering.</em></h2>
+    <p class="lead">No charging routine, no network dependency, no map to squint at. The tag rides in your suitcase and your phone does the watching.</p>
     <div class="steps">
-      <div class="step">
-        <div class="step-num">01</div>
+      <div class="glass step">
+        <span class="badge-no">01</span>
         <div class="step-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="1.8"/><rect x="4" y="7" width="16" height="13" rx="2" stroke="currentColor" stroke-width="1.8"/></svg></div>
-        <h4>Tag your bag</h4>
-        <p>Slip the BLE BagPing tag into any suitcase. No wires, no setup beyond a tap.</p>
+        <h4>Tag it</h4>
+        <p>Drop the BagPing tag in your suitcase and pair it with one tap. You're done before boarding starts.</p>
       </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 18h.01M8 21h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1z" stroke="currentColor" stroke-width="1.8"/></svg></div>
-        <h4>Pair the app</h4>
-        <p>Open BagPing, tap the tag once. Your bag is now linked to your phone.</p>
-      </div>
-      <div class="step is-key">
-        <div class="step-num">03</div>
+      <div class="glass step is-key">
+        <span class="badge-no">02</span>
         <div class="step-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v2M12 19v2M3 12h2M19 12h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/></svg></div>
         <h4>Get pinged</h4>
-        <p>Designed to ping you when your bag comes within range of your phone at the carousel — so you know first.</p>
+        <p>The moment your bag comes within range of your phone at the carousel, BagPing pings — before you can see it on the belt. Walk over. Lift it. Leave.</p>
       </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <div class="step-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
-        <h4>Ask your crew</h4>
-        <p>Five AI specialists handle your flight, the terminal, your claim and your policy — in your language.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">05</div>
+      <div class="glass step">
+        <span class="badge-no">03</span>
         <div class="step-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h4>Walk out sure</h4>
-        <p>Bag in hand, questions answered, no standing around wondering. That's the whole point.</p>
+        <p>Bag in hand, no craning over shoulders, no quiet dread. Certainty is the entire product.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ AI TRAVEL CREW ═══════════ -->
-<section class="section crew" id="crew">
+<!-- =========== THE CREW =========== -->
+<section class="section" id="crew">
   <div class="wrap">
-    <div class="crew-head">
-      <div>
-        <span class="eyebrow">AI Travel Crew</span>
-        <h2 class="h2">Five specialists, <em>one tap away.</em></h2>
-        <p class="lead">Every BagPing user gets the full crew in the app — open to everyone, in 18 languages. No tag required to chat.</p>
-      </div>
-    </div>
+    <span class="eyebrow">AI Travel Crew</span>
+    <h2 class="h2">And when a bag really doesn't come — <em>you're already moving.</em></h2>
+    <p class="lead">Five specialists live in the app, open to everyone, in 18 languages. While other passengers queue at a desk, your claim is drafting and your policy is being read — in plain words, in yours.</p>
     <div class="crew-grid">
-      <div class="crew-card">
-        <div class="crew-top"><div class="crew-ic"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="7" width="16" height="13" rx="2" stroke="#fff" stroke-width="1.8"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" stroke="#fff" stroke-width="1.8"/></svg></div><span class="crew-no">01</span></div>
+      <div class="glass crew-card">
+        <span class="badge-no">01</span>
+        <div class="crew-ic"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="7" width="16" height="13" rx="2" stroke="#0099E6" stroke-width="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" stroke="#0099E6" stroke-width="2"/></svg></div>
         <h4>Bag <em>Tracker</em></h4>
-        <p>Status on your tagged bag, belt-arrival pings, and a clear answer to "where is it right now."</p>
+        <p>A straight answer to "where is it right now" — status on your tagged bag and belt-arrival pings.</p>
       </div>
-      <div class="crew-card">
-        <div class="crew-top"><div class="crew-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1L15 22v-1.5L13 19v-5.5L21 16z" fill="#fff"/></svg></div><span class="crew-no">02</span></div>
+      <div class="glass crew-card">
+        <span class="badge-no">02</span>
+        <div class="crew-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1L15 22v-1.5L13 19v-5.5L21 16z" fill="#0099E6"/></svg></div>
         <h4>Flight <em>Desk</em></h4>
-        <p>Flight status, gate changes, delays and connection risk — all in one place, in your language.</p>
+        <p>Gate changes, delays, connection risk — one place, your language, before the departure board catches up.</p>
       </div>
-      <div class="crew-card">
-        <div class="crew-top"><div class="crew-ic"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="10" r="3" stroke="#fff" stroke-width="1.8"/><path d="M12 2a8 8 0 0 0-8 8c0 5 8 12 8 12s8-7 8-12a8 8 0 0 0-8-8z" stroke="#fff" stroke-width="1.8"/></svg></div><span class="crew-no">03</span></div>
+      <div class="glass crew-card">
+        <span class="badge-no">03</span>
+        <div class="crew-ic"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="10" r="3" stroke="#0099E6" stroke-width="2"/><path d="M12 2a8 8 0 0 0-8 8c0 5 8 12 8 12s8-7 8-12a8 8 0 0 0-8-8z" stroke="#0099E6" stroke-width="2"/></svg></div>
         <h4>Travel <em>Guide</em></h4>
-        <p>On-the-ground help in any terminal — transit, food, lounges and directions, in the local language.</p>
+        <p>On the ground in any terminal — transit, food, lounges, exits — with local knowledge you don't have to ask a stranger for.</p>
       </div>
-      <div class="crew-card">
-        <div class="crew-top"><div class="crew-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="#fff" stroke-width="1.8"/><path d="M14 2v6h6M9 13h6M9 17h4" stroke="#fff" stroke-width="1.8"/></svg></div><span class="crew-no">04</span></div>
+      <div class="glass crew-card">
+        <span class="badge-no">04</span>
+        <div class="crew-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="#0099E6" stroke-width="2"/><path d="M14 2v6h6M9 13h6M9 17h4" stroke="#0099E6" stroke-width="2"/></svg></div>
         <h4>Claim <em>Helper</em></h4>
-        <p>If a bag goes missing, it drafts your delayed- or lost-baggage claim, the right way, in minutes.</p>
+        <p>A bag goes missing, and your delayed- or lost-baggage claim drafts itself — the right way, in minutes, while you're still in the hall.</p>
       </div>
-      <div class="crew-card">
-        <div class="crew-top"><div class="crew-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2 3 7v6c0 5 4 9 9 11 5-2 9-6 9-11V7l-9-5z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></svg></div><span class="crew-no">05</span></div>
+      <div class="glass crew-card">
+        <span class="badge-no">05</span>
+        <div class="crew-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2 3 7v6c0 5 4 9 9 11 5-2 9-6 9-11V7l-9-5z" stroke="#0099E6" stroke-width="2" stroke-linejoin="round"/></svg></div>
         <h4>Policy <em>Reader</em></h4>
         <p>Paste your travel-insurance policy and get plain answers: what's covered, what's not, what to do next.</p>
       </div>
-      <div class="crew-card" style="display:flex;flex-direction:column;justify-content:center;background:linear-gradient(150deg,#0A3A63,#052744);border:0;color:#fff;">
-        <h4 style="color:#fff;font-family:var(--font-serif);">In your <em style="color:var(--yellow);">language.</em></h4>
-        <p style="color:rgba(255,255,255,.85);">All five specialists speak 18 languages — ask in yours, get answered in yours.</p>
-        <button class="btn btn--yellow" data-checkout style="margin-top:18px;align-self:flex-start;">Get your tag</button>
+      <div class="glass crew-card is-lang">
+        <h4>In your <em>language.</em></h4>
+        <p>All five specialists speak 18 languages. Ask in yours, get answered in yours — anywhere on earth.</p>
+        <button class="btn btn--yellow" data-checkout style="margin-top:18px;align-self:flex-start;">Get the tag</button>
       </div>
     </div>
-    <div class="crew-foot">
+    <div class="glass crew-foot">
       <div>
-        <h3>The tag pings. The crew handles the rest.</h3>
-        <p>One purchase covers the BLE tag. The app and the full AI Travel Crew are free to use.</p>
+        <h3>The tag pings. The Crew handles everything else.</h3>
+        <p>One purchase covers the tag. The app and the full AI Travel Crew are free — no tag required to chat.</p>
       </div>
-      <button class="btn btn--ink" data-checkout>Get your tag — from $49.99</button>
-    </div>
-  </div>
-</section>
-<!-- ═══════════ COMPARE ═══════════ -->
-<section class="section compare" id="compare">
-  <div class="wrap">
-    <span class="eyebrow">Why BagPing</span>
-    <h2 class="h2">Not just a tracker. A <em>whole arrival.</em></h2>
-    <div class="table" role="table" aria-label="BagPing compared to a generic Bluetooth tracker">
-      <div class="trow thead" role="row">
-        <div role="columnheader">Feature</div>
-        <div role="columnheader" class="them">Generic BLE tracker</div>
-        <div role="columnheader" class="tus">BagPing</div>
-      </div>
-      <div class="trow" role="row">
-        <div class="tfeat" role="cell">Belt-arrival ping at the carousel</div>
-        <div class="tno" role="cell">Location dot only</div>
-        <div class="tus" role="cell"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Core feature</div>
-      </div>
-      <div class="trow" role="row">
-        <div class="tfeat" role="cell">Flight tracking &amp; gate changes</div>
-        <div class="tno" role="cell">—</div>
-        <div class="tus" role="cell"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Built in</div>
-      </div>
-      <div class="trow" role="row">
-        <div class="tfeat" role="cell">On-the-ground airport guidance</div>
-        <div class="tno" role="cell">—</div>
-        <div class="tus" role="cell"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>AI crew</div>
-      </div>
-      <div class="trow" role="row">
-        <div class="tfeat" role="cell">Lost-baggage claim drafting</div>
-        <div class="tno" role="cell">—</div>
-        <div class="tus" role="cell"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>In minutes</div>
-      </div>
-      <div class="trow" role="row">
-        <div class="tfeat" role="cell">Insurance policy reader</div>
-        <div class="tno" role="cell">—</div>
-        <div class="tus" role="cell"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Plain answers</div>
-      </div>
-      <div class="trow" role="row">
-        <div class="tfeat" role="cell">Works in your language</div>
-        <div class="them" role="cell">English only</div>
-        <div class="tus" role="cell"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>18 languages</div>
-      </div>
+      <button class="btn btn--blue" data-checkout>Get the tag — from $49.99</button>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ LANGUAGES ═══════════ -->
-<section class="section langs" id="languages">
+<!-- =========== LANGUAGES =========== -->
+<section class="section" id="languages">
   <div class="wrap">
     <span class="eyebrow">18 languages</span>
-    <h2 class="h2">Travel anywhere. <em>Be understood everywhere.</em></h2>
-    <p class="lead">The app and the entire AI Travel Crew speak all of these — set it once, or let it follow your phone.</p>
+    <h2 class="h2">Ask in yours. <em>Answered in yours.</em></h2>
+    <p class="lead">The app and the entire Crew speak all of these. Set it once, or let it follow your phone.</p>
     <div class="lang-cloud">
       <span class="lang-pill">English</span>
-      <span class="lang-pill">Español</span>
-      <span class="lang-pill">Français</span>
+      <span class="lang-pill">Espa&ntilde;ol</span>
+      <span class="lang-pill">Fran&ccedil;ais</span>
       <span class="lang-pill">Deutsch</span>
       <span class="lang-pill">Italiano</span>
-      <span class="lang-pill">Português</span>
-      <span class="lang-pill is-rtl">العربية</span>
-      <span class="lang-pill">中文</span>
-      <span class="lang-pill">日本語</span>
-      <span class="lang-pill">한국어</span>
-      <span class="lang-pill">Русский</span>
+      <span class="lang-pill">Portugu&ecirc;s</span>
+      <span class="lang-pill is-rtl">&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;</span>
+      <span class="lang-pill">&#20013;&#25991;</span>
+      <span class="lang-pill">&#26085;&#26412;&#35486;</span>
+      <span class="lang-pill">&#54620;&#44397;&#50612;</span>
+      <span class="lang-pill">&#1056;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081;</span>
       <span class="lang-pill">Nederlands</span>
       <span class="lang-pill">Polski</span>
-      <span class="lang-pill">Türkçe</span>
+      <span class="lang-pill">T&uuml;rk&ccedil;e</span>
       <span class="lang-pill">Svenska</span>
       <span class="lang-pill">Dansk</span>
       <span class="lang-pill">Suomi</span>
-      <span class="lang-pill">Ελληνικά</span>
-      <span class="lang-pill is-rtl">עברית</span>
+      <span class="lang-pill">&Epsilon;&lambda;&lambda;&eta;&nu;&iota;&kappa;&#940;</span>
+      <span class="lang-pill is-rtl">&#1506;&#1489;&#1512;&#1497;&#1514;</span>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ DOWNLOAD ═══════════ -->
-<section class="section download" id="download">
+<!-- =========== PRICING =========== -->
+<section class="section" id="pricing">
+  <div class="wrap">
+    <div style="text-align:center;">
+      <span class="eyebrow" style="justify-content:center;">Pricing</span>
+      <h2 class="h2">One tag. <em>Everything else is free.</em></h2>
+      <p class="lead" style="margin:14px auto 0;">Buy the tag once. The app and all five Crew specialists cost nothing — no subscription, ever.</p>
+    </div>
+    <div class="glass price-card">
+      <div class="price-tag">$49.99<small> / tag</small></div>
+      <p class="sub">Bundle and save — cover the whole family's luggage.</p>
+      <ul class="price-incl">
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>One BLE BagPing tag, ready to pair</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Belt-arrival pings at any airport</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Free app + full AI Travel Crew, 18 languages</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>No subscription — buy once, use forever</li>
+      </ul>
+      <button class="btn btn--yellow" data-checkout style="width:100%;font-size:16px;padding:16px;">Get the tag</button>
+      <p class="price-bundles">Bundles: 1 for $49.99 &middot; 2 for $89.99 &middot; 3 for $124.99 &middot; 5 for $199.99</p>
+    </div>
+  </div>
+</section>
+
+<!-- =========== DOWNLOAD =========== -->
+<section class="section" id="download">
   <div class="wrap dl-inner">
     <div>
       <span class="eyebrow">Get the app</span>
-      <h2 class="h2">The app is free. <em>Download it now.</em></h2>
-      <p class="lead">Chat with the full AI Travel Crew today — no tag required to start. Add a BagPing tag whenever you're ready for belt-arrival pings.</p>
+      <h2 class="h2">The app is free. <em>Start tonight.</em></h2>
+      <p class="lead">The full AI Travel Crew is open to everyone — no tag required to chat. Add a tag whenever you want the ping.</p>
       <div class="dl-actions">
         <a class="store" href="#" data-store="ios" aria-label="Download on the App Store">
           <svg viewBox="0 0 24 24" fill="#052744" aria-hidden="true"><path d="M16.5 1.6c.1 1-.3 2-1 2.8-.7.8-1.8 1.4-2.8 1.3-.1-1 .4-2 1-2.7.7-.8 1.9-1.4 2.8-1.4zM20 17c-.5 1.2-.8 1.7-1.4 2.7-.9 1.4-2.2 3.1-3.8 3.1-1.4 0-1.8-.9-3.7-.9-1.9 0-2.3.9-3.7.9-1.6 0-2.8-1.5-3.7-2.9C1.3 17 1 13 2.6 10.5c.9-1.4 2.5-2.3 4-2.3 1.5 0 2.4.9 3.7.9 1.2 0 1.9-.9 3.7-.9 1.3 0 2.7.7 3.7 2-3.2 1.8-2.7 6.3.3 6.8z"/></svg>
@@ -735,58 +581,36 @@ button{font-family:inherit;cursor:pointer;border:0;background:transparent;color:
         </div>
         <div class="mini-card">
           <div class="mc-eta">Pinged</div>
-          <div class="mc-lab">Your bag · carousel 7</div>
+          <div class="mc-lab">Your bag &middot; carousel 7</div>
         </div>
-        <div class="mini-row"><span class="md"></span><span>Flight Desk · on time, gate B12</span></div>
-        <div class="mini-row"><span class="md"></span><span>Travel Guide · taxi rank, exit 3</span></div>
-        <div class="mini-row"><span class="md" style="background:var(--yellow);"></span><span>Bag Tracker · your bag is near</span></div>
+        <div class="mini-row"><span class="md"></span><span>Flight Desk &middot; on time, gate B12</span></div>
+        <div class="mini-row"><span class="md"></span><span>Travel Guide &middot; taxi rank, exit 3</span></div>
+        <div class="mini-row"><span class="md" style="background:var(--yellow);"></span><span>Bag Tracker &middot; your bag is near</span></div>
       </div>
     </div>
   </div>
 </section>
+</main>
 
-<!-- ═══════════ PRICING ═══════════ -->
-<section class="section price" id="pricing">
-  <div class="wrap">
-    <div style="text-align:center;">
-      <span class="eyebrow" style="justify-content:center;">Pricing</span>
-      <h2 class="h2">One tag. <em>Then everything's free.</em></h2>
-      <p class="lead" style="margin:14px auto 0;">Buy the BLE tag once. The app and all five AI Travel Crew specialists cost nothing to use — no subscription, ever.</p>
-    </div>
-    <div class="price-card">
-      <div class="price-tag">$49.99<small> / tag</small></div>
-      <p class="sub">Bundle and save — covers the whole family's luggage.</p>
-      <ul class="price-incl">
-        <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>One BLE BagPing tag, ready to pair</li>
-        <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Belt-arrival pings at any airport</li>
-        <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Free app + full AI Travel Crew, 18 languages</li>
-        <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>No subscription — buy once, use forever</li>
-      </ul>
-      <button class="btn btn--yellow" data-checkout style="width:100%;font-size:16px;padding:16px;">Get your tag</button>
-      <p style="font-size:12.5px;color:var(--muted);margin-top:14px;">Bundles: 1 for $49.99 · 2 for $89.99 · 3 for $124.99 · 5 for $199.99</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════ FOOTER ═══════════ -->
+<!-- =========== FOOTER =========== -->
 <footer class="foot">
   <div class="wrap">
     <div class="foot-top">
       <div style="max-width:300px;">
         <a class="brand" href="#top" aria-label="BagPing home" style="margin-bottom:14px;">
-          <span class="brand-mark" style="border-radius:10px;">
+          <span class="brand-mark">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="7" width="16" height="13" rx="2" stroke="#fff" stroke-width="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" stroke="#fff" stroke-width="2"/><circle cx="17" cy="13" r="1.5" fill="#FFD600"/></svg>
           </span>
           <span class="brand-word">Bag<em>Ping</em></span>
         </a>
-        <p style="font-size:14px;color:rgba(255,255,255,.75);line-height:1.6;">Get pinged the moment your bag reaches the belt — plus a five-member AI Travel Crew, in 18 languages.</p>
+        <p style="font-size:14px;line-height:1.6;">Your bag hits the belt. You know first. One tag, a five-member AI Travel Crew, 18 languages.</p>
       </div>
       <div class="foot-cols">
         <div class="foot-col">
           <h5>Product</h5>
-          <a href="#how">How it works</a>
-          <a href="#crew">AI Travel Crew</a>
-          <a href="#compare">Compare</a>
+          <a href="#ping">The ping</a>
+          <a href="#crew">The Crew</a>
+          <a href="#languages">Languages</a>
           <a href="#pricing">Pricing</a>
           <a href="#download">Download</a>
         </div>
@@ -800,13 +624,13 @@ button{font-family:inherit;cursor:pointer;border:0;background:transparent;color:
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© <span id="yr">2026</span> Bionectech, Inc. · 5900 Balcones Drive #27154, Austin, TX 78731</span>
+      <span>&copy; <span id="yr">2026</span> Bionectech, Inc. &middot; 5900 Balcones Drive #27154, Austin, TX 78731</span>
       <span>Made for travelers who'd rather know.</span>
     </div>
   </div>
 </footer>
 
-<!-- ═══════════ CHECKOUT MODAL ═══════════ -->
+<!-- =========== CHECKOUT MODAL =========== -->
 <div class="co" id="checkout" role="dialog" aria-modal="true" aria-labelledby="coTitle">
   <div class="co-card">
     <div class="co-head">
@@ -831,7 +655,7 @@ button{font-family:inherit;cursor:pointer;border:0;background:transparent;color:
         <button class="co-pill" data-qty="5">5</button>
       </div>
       <div class="co-sum">
-        <div class="co-line"><span class="k">BagPing tag <small id="coUnit">1 × $49.99</small></span><span class="v" id="coTags">$49.99</span></div>
+        <div class="co-line"><span class="k">BagPing tag <small id="coUnit">1 &times; $49.99</small></span><span class="v" id="coTags">$49.99</span></div>
         <div class="co-line"><span class="k">BagPing app + AI Travel Crew</span><span class="v free">Free</span></div>
         <div class="co-line"><span class="k">Shipping</span><span class="v free">Free</span></div>
         <div class="co-line total"><span class="k">Total</span><span class="v" id="coTotal">$49.99</span></div>
@@ -851,7 +675,7 @@ button{font-family:inherit;cursor:pointer;border:0;background:transparent;color:
   </div>
 </div>
 
-<!-- ═══════════ LEGAL: PRIVACY ═══════════ -->
+<!-- =========== LEGAL: PRIVACY =========== -->
 <div class="legal-modal" id="legal-privacy" role="dialog" aria-modal="true" aria-labelledby="privTitle">
   <div class="lm-card">
     <div class="lm-head">
@@ -865,7 +689,7 @@ button{font-family:inherit;cursor:pointer;border:0;background:transparent;color:
       <h4>What we collect</h4>
       <p>We collect the minimum needed to run BagPing: your account details (phone number for verification), the bags you add, and your language preference. Bag-proximity detection happens between the BLE tag and your own phone — BagPing does not track your bag on a global location network.</p>
       <h4>How the AI Travel Crew uses your input</h4>
-      <p>When you chat with a crew specialist, your message is processed to generate a reply. Don't paste more personal detail than a question needs. Insurance text you submit to the Policy Reader is used only to answer you in that session.</p>
+      <p>When you chat with a Crew specialist, your message is processed to generate a reply. Don't paste more personal detail than a question needs. Insurance text you submit to the Policy Reader is used only to answer you in that session.</p>
       <h4>What we never do</h4>
       <p>We don't sell your personal data. We don't show third-party advertising inside the app. We don't share your travel patterns with airlines or insurers.</p>
       <h4>Your control</h4>
@@ -876,7 +700,7 @@ button{font-family:inherit;cursor:pointer;border:0;background:transparent;color:
   </div>
 </div>
 
-<!-- ═══════════ LEGAL: TERMS ═══════════ -->
+<!-- =========== LEGAL: TERMS =========== -->
 <div class="legal-modal" id="legal-terms" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
   <div class="lm-card">
     <div class="lm-head">
@@ -909,13 +733,13 @@ button{font-family:inherit;cursor:pointer;border:0;background:transparent;color:
 (function(){
   "use strict";
 
-  /* ───── year ───── */
+  /* year */
   var yr = document.getElementById('yr');
   if (yr) yr.textContent = new Date().getFullYear();
 
-  /* ═══════ STRIPE CHECKOUT — operator slots, fail-safe ═══════
+  /* ======= STRIPE CHECKOUT — operator slots, fail-safe =======
      Deliberately EMPTY until new Stripe Payment Links exist at the
-     new prices. Until then, the button shows a friendly "not
+     current prices. Until then, the button shows a friendly "not
      connected yet" message and does NOT pretend to charge anyone. */
   var CHECKOUT_URLS = {
     1:'',
@@ -943,7 +767,7 @@ button{font-family:inherit;cursor:pointer;border:0;background:transparent;color:
 
   function paint(){
     var price = PRICES[qty] || (UNIT * qty);
-    coUnit.textContent  = qty + ' × ' + money(UNIT);
+    coUnit.textContent  = qty + ' \u00d7 ' + money(UNIT);
     coTags.textContent  = money(price);
     coTotal.textContent = money(price);
     coPayLabel.textContent = 'Pay ' + money(price) + ' securely';
@@ -984,28 +808,28 @@ button{font-family:inherit;cursor:pointer;border:0;background:transparent;color:
     } else {
       // fail-safe: nothing connected yet — never fake a charge
       coNote.innerHTML = '<b>Checkout isn\'t connected yet.</b> Add your Stripe Payment Links to <code>CHECKOUT_URLS</code> to go live. No payment was taken.';
-      coNote.style.color = 'var(--red)';
+      coNote.style.color = '#ff8a8d';
       setTimeout(function(){ coNote.style.color = ''; }, 4000);
     }
   });
 
   paint();
 
-  /* ───── store CTA placeholder guard ───── */
+  /* store CTA placeholder guard */
   document.querySelectorAll('[data-store]').forEach(function(s){
     s.addEventListener('click', function(e){
       if (s.getAttribute('href') === '#') {
         e.preventDefault();
         var t = document.createElement('div');
         t.textContent = 'App Store / Google Play links go live at launch.';
-        t.style.cssText = 'position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:#052744;color:#fff;padding:11px 20px;border-radius:999px;font-size:13px;font-weight:600;z-index:300;box-shadow:0 10px 30px rgba(5,39,68,.4);';
+        t.style.cssText = 'position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:#052744;color:#fff;border:1px solid rgba(0,153,230,.4);padding:11px 20px;border-radius:999px;font-size:13px;font-weight:600;z-index:300;box-shadow:0 10px 30px rgba(0,0,0,.4);';
         document.body.appendChild(t);
         setTimeout(function(){ t.remove(); }, 2600);
       }
     });
   });
 
-  /* ───── legal modals ───── */
+  /* legal modals */
   function openLegal(which){
     var m = document.getElementById('legal-' + which);
     if (!m) return;
@@ -1031,7 +855,7 @@ button{font-family:inherit;cursor:pointer;border:0;background:transparent;color:
     m.addEventListener('click', function(e){ if (e.target === m) closeLegal(m); });
   });
 
-  /* ───── escape closes any overlay ───── */
+  /* escape closes any overlay */
   document.addEventListener('keydown', function(e){
     if (e.key !== 'Escape') return;
     if (co.classList.contains('on')) closeCheckout();
@@ -1040,25 +864,5 @@ button{font-family:inherit;cursor:pointer;border:0;background:transparent;color:
 
 })();
 </script>
-
-<style>
-/* ── carousel scene animations (kept with reduced-motion guard above) ── */
-.beltflow > g{animation:beltrun 9s linear infinite;}
-@keyframes beltrun{
-  0%{transform:translateX(40px)}
-  100%{transform:translateX(-150px)}
-}
-.bagbob{animation:bob 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center;}
-@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-.pingring{transform-box:fill-box;transform-origin:center;animation:pingexp 2s ease-out infinite;}
-.pingring2{animation-delay:1s;}
-@keyframes pingexp{0%{transform:scale(.5);opacity:.9}100%{transform:scale(2.1);opacity:0}}
-.pinghalo{transform-box:fill-box;transform-origin:center;animation:halo 2.6s ease-in-out infinite;}
-@keyframes halo{0%,100%{opacity:.4}50%{opacity:.85}}
-@media(prefers-reduced-motion:reduce){
-  .beltflow>g,.bagbob,.pingring,.pinghalo{animation:none!important;}
-}
-</style>
-
 </body>
 </html>
